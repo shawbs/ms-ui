@@ -1,0 +1,331 @@
+
+@keyframes up-in {
+    0% {
+        transform: translate(0, -100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes up-out {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, -100%);
+    }
+}
+
+@keyframes footer-in {
+    0% {
+        //opacity: 0;
+        height: 0;
+    }
+    100% {
+        //opacity: 1;
+        height: 1rem;
+    }
+}
+
+@keyframes footer-out {
+    0% {
+        //opacity: 1;
+        height: 1rem;
+    }
+    100% {
+        //opacity: 0;
+        height: 0;
+    }
+}
+
+@keyframes down-in {
+    0% {
+        transform: translate(0, -100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes down-out {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, 25%);
+    }
+}
+
+@keyframes left-in {
+    0% {
+        transform: translate(100%, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes left-out {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+@keyframes right-in {
+    0% {
+        transform: translate(-25%, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes right-out {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100%, 0);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes show-in {
+    0% {
+        opacity: 0;
+        /*transform: scale(1.1);*/
+    }
+    100% {
+        opacity: 1;
+        /*transform: scale(1);*/
+    }
+}
+
+@keyframes tada {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes scale-in{
+    from{
+        transform: scale(.5)
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+@keyframes tada-x{
+    0%{
+        transform: translateX(-1%) scale3d(.9,.9,.9);
+    }
+    50%{
+        transform: translateX(1%) scale3d(1,1,1);
+    }
+    100%{
+        transform: translateX(-1%) scale3d(.9,.9,.9);
+    }
+}
+
+@keyframes tada-y{
+    0%{
+        transform: translateY(-1%) rotate3d(0, 0, 1, 0);
+    }
+    50%{
+        transform: translateY(1%) rotate3d(0, 1, 0, 1deg);
+    }
+    100%{
+        transform: translateY(-1%) rotate3d(0, 0, 0, 0);
+    }
+}
+@keyframes scale{
+    0%{
+        transform: scale(.98);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(.98);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+.rotate{
+    animation: rotate 1.5s infinite linear;
+}
+
+.scale{
+    animation: scale 2s infinite;
+}
+
+.tada-x{
+    animation: tada-x 2s infinite;
+    animation-fill-mode: both;
+}
+
+.tada-y{
+    animation: tada-y 2s linear infinite;
+    // animation-fill-mode: both;
+}
+
+// 放大效果
+.scale-enter-active{
+    animation: scale-in .5s;
+}
+
+//拉动 并且放大缩小效果
+.tada {
+    animation-name: tada;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+/*上入动画*/
+.up-enter-active {
+    z-index: 1;
+    animation: up-in .5s;
+}
+
+.up-leave-active {
+    z-index: 1;
+    animation: up-out .5s;
+}
+
+/*下入动画*/
+.down-enter-active {
+    z-index: 1;
+    animation: down-in .5s;
+}
+
+.down-leave-active {
+    animation: down-out .5s;
+}
+
+/*左入动画*/
+.left-enter-active {
+    z-index: 1;
+    animation: left-in .5s;
+}
+
+.left-leave-active {
+    animation: left-out .5s;
+}
+
+/*右入动画*/
+.right-enter-active {
+    animation: right-in .5s;
+}
+
+.right-leave-active {
+    z-index: 1;
+    animation: right-out .5s;
+}
+
+/*菜单动画*/
+.footer-enter-active {
+    overflow: hidden;
+    min-height: inherit !important;
+    animation-fill-mode: both;
+    animation: footer-in .5s;
+}
+
+.footer-leave-active {
+    overflow: hidden;
+    min-height: inherit !important;
+    z-index: 1;
+    animation: footer-out .5s;
+}
+
+/*sidebar*/
+.sidebar-left-enter-active {
+    animation: left-in .5s;
+}
+
+.sidebar-left-leave-active {
+    animation: right-out .5s;
+}
+
+/*弹跳*/
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in .3s reverse;
+}
+
+/*query-box*/
+.query-box-enter-active {
+    animation: down-in .5s;
+}
+
+.query-box-leave-active {
+    animation: up-out .5s;
+}
+
+.popup-down-enter-active {
+    animation: up-in .5s;
+}
+
+.popup-down-leave-active {
+    animation: down-out .5s;
+}
+
+.show-enter-active {
+    animation: show-in .5s;
+}
+
+.show-leave-active {
+    animation: show-in .3s reverse;
+}
