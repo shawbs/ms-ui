@@ -1,0 +1,79 @@
+{
+  "id": "1487251",
+  "name": "ms-ui",
+  "font_family": "ms-font",
+  "css_prefix_text": "ms-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "631499",
+      "name": "loading",
+      "font_class": "loading",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "736606",
+      "name": "check-box",
+      "font_class": "checkbox",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "959407",
+      "name": "radio",
+      "font_class": "radio",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "1222030",
+      "name": "arrow-right",
+      "font_class": "arrow-right",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "1704654",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "6978741",
+      "name": "ios-close-circle",
+      "font_class": "close-circle",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "6978742",
+      "name": "ios-close",
+      "font_class": "close",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "6978750",
+      "name": "ios-information-circ",
+      "font_class": "tip",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "6978765",
+      "name": "ios-search",
+      "font_class": "search",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "6988499",
+      "name": "check-box-outline-bl",
+      "font_class": "checkbox-o",
+      "unicode": "ec58",
+      "unicode_decimal": 60504
+    }
+  ]
+}

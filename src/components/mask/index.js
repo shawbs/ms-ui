@@ -3,17 +3,8 @@ import main from './main'
 
 const ComponentConstructor = Vue.extend(main)
 var instance = null
-const defaultOption = {
-    show: true,
-    message: '',
-    time: 3000,
-    timer: null,
-    isClickOtherClose: true,
-    align: 'center'
-}
 
-function ToastBox(){}
-
+function Plugin(){}
 function craeteInstance(){
     if (!instance){
         instance = new ComponentConstructor()
@@ -27,13 +18,12 @@ function craeteInstance(){
     }
     return instance
 }
-
-ToastBox.show = function(message="",opt){
+Plugin.show = function(){
     instance = craeteInstance()
-    opt = {...defaultOption,message,...opt}
-    for (let i in opt){
-        instance[i] = opt[i]
-    }
+    instance.show = true
 }
-
-export default ToastBox
+Plugin.hide = function(){
+    instance = craeteInstance()
+    instance.show = false
+}
+export default Plugin

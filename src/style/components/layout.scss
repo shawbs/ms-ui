@@ -7,17 +7,11 @@ body,
     height: 100%;
     overflow: hidden;
 }
-.pages {
-    width: inherit;
-    height: inherit;
-    position: relative;
-    z-index: $--z-index-1;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    font-size: 1.4rem;
+
+.tab-page{
+    .page{
+        bottom: $--tabbar-height;
+    }
 }
 
 .page {
@@ -33,22 +27,18 @@ body,
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 
-    /*----------------定位----------------*/
-    > .ms-header,
-    > .ms-footer,
-    > .ms-container {
-        flex: 0 0 auto;
-        position: relative;
-    }
     > .ms-header {
+        flex: none;
         order: 1;
     }
     > .ms-container {
         order: 2;
         flex: 1;
+        overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
     > .ms-footer {
+        flex: none;
         order: 3;
     }
 }
@@ -63,8 +53,8 @@ body,
     color: #fff;
     text-align: center;
     line-height: $--headerHeight;
-    z-index: $--z-index-3;
     min-height: $--headerHeight;
+    z-index: $--z-index-1;
     > .ctrl-left {
         order: 0;
     }
@@ -92,7 +82,6 @@ body,
 }
 .ms-footer {
     position: relative;
-    z-index: $--z-index-2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,74 +91,5 @@ body,
     min-height: $--footerHeight;
     > .btn {
         flex: 1 1 1%;
-    }
-}
-
-
-.ms-popup-wrap {
-    color: $--color-text;
-    > .popup,
-    > .page {
-        position: absolute;
-        z-index: $--z-index-7;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-    > .popup {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(35, 24, 21, 0.5);
-
-        > .inner {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: stretch;
-            background-color: #fff;
-
-            > .header,
-            > .footer {
-                min-height: 4rem;
-                line-height: 4rem;
-                flex: 0 0 auto;
-            }
-
-            > .header {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: stretch;
-                > .label {
-                    flex: 1 1 1%;
-                    text-align: center;
-                    //color: $color-primary;
-                }
-                > .button {
-                    padding-top: 0;
-                    padding-bottom: 0;
-                    flex: 0 0 100px;
-                    border: none;
-                }
-            }
-
-            > .footer {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: stretch;
-            }
-            > .body {
-                flex: 1 1 1%;
-                overflow-x: hidden;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                padding: $--padding;
-            }
-        }
     }
 }

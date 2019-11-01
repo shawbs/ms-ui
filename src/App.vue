@@ -1,5 +1,5 @@
 <template>
-  <div id="App" class="ms-app">
+  <div id="App" class="app">
     <router-view />
   </div>
 </template>
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.app{
+  font-size: 1.4rem;
+}
 </style>

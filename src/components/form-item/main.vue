@@ -1,5 +1,5 @@
 <template>
-    <div class="ms-form-item">
+    <div class="ms-form-item" :class="`ms-form-item-${size}`">
         <div class="ms-form-item-label" :style="{width: labelWidth}">{{label}}</div>
         <div class="ms-form-item-content">
             <slot />
@@ -23,10 +23,14 @@ export default {
                 return ''
             }
             const formError = this.MsForm.formError
+
             return formError[this.prop] || ''
         },
         labelWidth () {
             return this.MsForm.labelWidth ? this.MsForm.labelWidth : 'auto'
+        },
+        size(){
+            return this.$MS_OPTION.size || 'medium'
         }
     },
     methods: {
@@ -66,9 +70,24 @@ export default {
     margin-bottom: $--margin;
     .ms-form-item-label{
         flex: none;
-        line-height: 30px;
+        line-height: $--input-height;
         text-align: right;
         padding: 0 $--padding;
+    }
+    &.ms-form-item-small{
+        .ms-form-item-label{
+            line-height: $--input-height-small;
+        }
+    }
+    &.ms-form-item-medium{
+        .ms-form-item-label{
+            line-height: $--input-height;
+        }
+    }
+    &.ms-form-item-large{
+        .ms-form-item-label{
+            line-height: $--input-height-large;
+        }
     }
     .ms-form-item-content{
         flex: 1;

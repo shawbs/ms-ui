@@ -1,5 +1,5 @@
 <template>
-    <div :class="['ms-tabbar']" :style="`order: ${order}` ">
+    <div :class="['ms-tabbar']" :style="{order:order}">
         <slot/>
     </div>
 </template>
@@ -11,26 +11,40 @@ export default {
         position: {
             type: String,
             default: 'bottom'
+        },
+        value: [String, Number]
+    },
+    provide(){
+        return {
+            'MsTabbar': this
         }
     },
     computed: {
         order () {
-            return this.position == 'top' ? 0 : 99
+            return this.position === 'top' ? 0 : 99
+        }
+    },
+    methods: {
+        changeHandle(val){
+            this.$emit('input', val)
         }
     }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
 .ms-tabbar{
-    order: 99;
-    flex: 0 0 auto;
-    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: $--tabbar-height;
     width: 100%;
     display: flex;
     align-items: stretch;
-    background: $--color-primary;
+    border-top: $--border;
+    background: #fff;
+    z-index: $--z-index-3;
 }
 </style>

@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "files": [
-    "src"
+    "dist"
   ],
   "main": "./dist/msab-ui.common.js",
   "dependencies": {

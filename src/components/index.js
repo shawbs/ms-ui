@@ -1,15 +1,19 @@
 import Loading from './loading'
-import MessageBox from './messageBox'
+import MsgBox from './message-box'
 import Container from './layout/container'
 import Footer from './layout/footer'
 import Header from './layout/header'
-import Link from './link'
-import Button from './button'
-import Input from './input'
-import Form from './form'
-import FormItem from './form-item'
+import Link from './link/main'
+import Button from './button/main'
+import ButtonGroup from './button-group/main'
+import Input from './input/main'
+import Form from './form/main'
+import FormItem from './form-item/main'
 import Tabbar from './tabbar/tabbar'
 import TabbarItem from './tabbar/tabbar-item'
+import Popup from './popup/main'
+import Toast from './toast'
+import Icon from './icon/main'
 
 const components = [
     Container,
@@ -21,20 +25,27 @@ const components = [
     Form,
     FormItem,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Popup,
+    Icon,
+    ButtonGroup
 ]
 
 const install = function (Vue, opts = {}) {
     components.forEach(component => {
         Vue.component(component.name, component)
     })
-    Vue.prototype.$MSAB = {
-        prefix: 'ms',
-        size: opts.size || 'Medium',
+    Vue.prototype.$MS_OPTION = {
+        size: opts.size || 'large',
         zIndex: opts.size || 2000
     }
+
     Vue.prototype.$loading = Loading
-    Vue.prototype.$messageBox = MessageBox
+    Vue.prototype.$msgbox = MsgBox
+    Vue.prototype.$alert = MsgBox.alert
+    Vue.prototype.$confirm = MsgBox.confirm
+    Vue.prototype.$prompt = MsgBox.prompt
+    Vue.prototype.$toast = Toast.show
 }
 
 // 通过脚本引入安装
@@ -45,7 +56,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
     install,
     Loading,
-    MessageBox,
+    MsgBox,
     Container,
     Footer,
     Header,
@@ -54,5 +65,8 @@ export default {
     Form,
     FormItem,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Popup,
+    Icon,
+    ButtonGroup
 }

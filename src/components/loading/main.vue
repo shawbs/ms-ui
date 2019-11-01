@@ -1,48 +1,26 @@
 <template>
-    <transition name="bounce">
-        <div
-            :class="['popup loader-box']"
-            v-if="show"
-            @click.self="onPopup('cancel')"
-        >
-            <div class="loader">
-                <div class="text-center ">
-                    <i class="iconfont icon-loading rotate"></i>
-                </div>
-                <div class="content mt-10" v-if="message" v-html="message"></div>
-            </div>
+    <div class="ms-box" v-if="show" @click.self="clickPopup('close')">
+        <div :class="['ms-loading']">
+            <ms-icon icon="loading"></ms-icon>
+            <div>{{message}}</div>
         </div>
-    </transition>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'MsLoading',
+    name: 'MsToast',
     data () {
         return {
             show: false,
             message: '',
-            time: 0,
-            timer: null,
-            callback: null,
-            isClickOtherClose: false, // 是否点击蒙层关闭
-            action: ''
-        }
-    },
-    watch: {
-        show (val) {
-            if (this.time > 0) {
-                this.timer = setTimeout(() => {
-                    this.doClose()
-                    clearTimeout(this.timer)
-                }, this.time)
-            }
+            isClickOtherClose: false, // 是否点击蒙层关闭toast
+            align: 'center'
         }
     },
     methods: {
-        onPopup (action) {
-            if (!this.isClickOtherClose) return
-            this.handleAction(action)
+        clickPopup (action) {
+            if (this.isClickOtherClose) this.handleAction(action)
         },
         handleAction (action) {
             this.action = action
@@ -56,34 +34,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
-.popup-wrap {
-    > .popup {
-        &.loader-box {
-            background: transparent;
-            z-index: $--z-index-8;
-        }
+
+.ms-loading{
+    background: rgba(0, 0, 0, .8);
+    padding: 20px 25px;
+    color: #ffffff;
+    border-radius: .4rem;
+    text-align: center;
+    .ms-icon-loading{
+        font-size: 24px;
     }
 }
 
-.popup.loader-box {
-    color: $--color-text;
-    font-size: 1.4rem;
-    .loader{
-        background: rgba(0, 0, 0, .8);
-        padding: 2rem;
-        color: #ffffff;
-        border-radius: .4rem;
-        @extend %flexcenter;
-        flex-direction: column;
-        font-size: 1.2rem;
-        .icon-loading{
-            font-size: 1.6rem;
-            display: flex;
-            align-items: center;
-        }
-    }
-}
 </style>
+

@@ -1,48 +1,41 @@
 import Vue from 'vue'
 import main from './main'
-import { Dom } from '@/utils'
 
-const MainConstructor = Vue.extend(main)
+const ComponentConstructor = Vue.extend(main)
+var instance = null
+const defaultOption = {
+    show: true,
+    message: '',
+    isClickOtherClose: false, // 是否点击蒙层关闭toast
+    align: 'center'
+}
 
-class LoaderPlugin {
-    constructor () {
-        this.noTag = true
-        this.names = 'loader'
-        this.instance = new MainConstructor()
-        this.option = {
-            show: false,
-            message: '',
-            time: 0,
-            timer: null,
-            callback: null,
-            isClickOtherClose: true, // 是否点击蒙层关闭
-            action: ''
-        }
-    }
-    init (opt) {
-        opt = { ...this.option, ...opt }
-        if (this.instance.$el) {
-            Dom.getPopupWrap().appendChild(this.instance.$el)
+function Loading(){}
+
+function craeteInstance(){
+    if (!instance){
+        instance = new ComponentConstructor()
+        const root = document.documentElement
+
+        if (instance.$el) {
+            root.appendChild(instance.$el)
         } else {
-            this.instance.$mount(Dom.createPopupWrap())
-        }
-        for (let i in opt) {
-            this.instance[i] = opt[i]
+            root.appendChild(instance.$mount().$el)
         }
     }
+    return instance
+}
 
-    show (message = '') {
-        this.init({
-            message
-        })
-        this.instance.show = true
-    }
-
-    hide () {
-        if (this.instance) {
-            this.instance.show = false
-        }
+Loading.show = function(message="",opt){
+    instance = craeteInstance()
+    opt = {...defaultOption,message,...opt}
+    for (let i in opt){
+        instance[i] = opt[i]
     }
 }
 
-export default new LoaderPlugin()
+Loading.hide = function(){
+    if (instance) instance.show = false
+}
+
+export default Loading

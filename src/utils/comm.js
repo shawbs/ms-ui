@@ -1,7 +1,8 @@
-const hasOwnProperty = Object.prototype.hasOwnProperty
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+
 class Comm {
     get now () {
-        return new Date().getTime()
+        return new Date().getTime();
     }
     emptyFn () { }
     /**
@@ -10,11 +11,12 @@ class Comm {
      * @returns {string}
      */
     getUniqueId (prefix = '') {
-        this.autoIncrement++
-        const cDate = new Date().getTime()
-        const offDate = new Date(2010, 1, 1).getTime()
-        const offset = cDate - offDate
-        return prefix + parseFloat(offset + '').toString(16) + this.autoIncrement
+        this.autoIncrement++;
+        const cDate = new Date().getTime();
+        const offDate = new Date(2010, 1, 1).getTime();
+        const offset = cDate - offDate;
+
+        return prefix + parseFloat(String(offset)).toString(16) + this.autoIncrement;
     }
 
     /**
@@ -23,12 +25,14 @@ class Comm {
      */
     getKey () {
         // const t  = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-        const t = 'xxxxxxxx'
+        const t = 'xxxxxxxx';
+
         return t.replace(/[xy]/g, function (c) {
-            const r = (Math.random() * 16) | 0
-            const v = c === 'x' ? r : (r & 0x3) | 0x8
-            return v.toString(16)
-        })
+            const r = (Math.random() * 16) | 0;
+            const v = c === 'x' ? r : (r & 0x3) | 0x8;
+
+            return v.toString(16);
+        });
     }
 
     /**
@@ -37,7 +41,7 @@ class Comm {
      * @param {*} key
      */
     hasOwn (obj, key) {
-        return hasOwnProperty.call(obj, key)
+        return hasOwnProperty.call(obj, key);
     }
 
     /**
@@ -46,7 +50,7 @@ class Comm {
      * @returns {boolean|boolean|*}
      */
     isVNode (node) {
-        return node !== null && typeof node === 'object' && this.hasOwn(node, 'componentOptions')
+        return node !== null && typeof node === 'object' && this.hasOwn(node, 'componentOptions');
     }
 
     /**
@@ -56,9 +60,10 @@ class Comm {
      * @param {*} val
      */
     changeUrlArg (url, arg, val) {
-        var pattern = arg + '=([^&]*)'
-        var replaceText = arg + '=' + val
-        return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url + '&' + replaceText : url + '?' + replaceText)
+        var pattern = arg + '=([^&]*)';
+        var replaceText = arg + '=' + val;
+
+        return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), replaceText) : (url.match('[?]') ? url + '&' + replaceText : url + '?' + replaceText);
     }
 
     /**
@@ -66,9 +71,12 @@ class Comm {
      * @param {*} name
      */
     getQueryString (name) {
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
-        var r = window.location.search.substr(1).match(reg)
-        if (r != null) return unescape(r[2]); return null
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = window.location.search.substr(1).match(reg);
+
+        if (r !== null) {
+            return unescape(r[2]);
+        } return null;
     }
 
     /**
@@ -77,15 +85,16 @@ class Comm {
      * @param {*} b DOM元素
      */
     isCollision (a, b) {
-        var ax = a.offsetLeft
-        var ay = a.offsetTop
-        var aw = a.offsetWidth
-        var ah = a.offsetHeight
-        var bx = b.offsetLeft
-        var by = b.offsetTop
-        var bw = b.offsetWidth
-        var bh = b.offsetHeight
-        return (ax + aw > bx && ax < bx + bw && ay + ah > by && ay < by + bh)
+        var ax = a.offsetLeft;
+        var ay = a.offsetTop;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var bx = b.offsetLeft;
+        var by = b.offsetTop;
+        var bw = b.offsetWidth;
+        var bh = b.offsetHeight;
+
+        return (ax + aw > bx && ax < bx + bw && ay + ah > by && ay < by + bh);
     }
 
     /**
@@ -94,13 +103,13 @@ class Comm {
      * return 返回格式化后的日期
      */
     formatTime (date, str = 'YYYY-MM-DD hh:mm:ss') {
-        date = new Date(date)
-        const year = date.getFullYear()
-        const month = date.getMonth() + 1
-        const day = date.getDate()
-        const hour = date.getHours()
-        const minute = date.getMinutes()
-        const second = date.getSeconds()
+        date = new Date(date);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hour = date.getHours();
+        const minute = date.getMinutes();
+        const second = date.getSeconds();
         const o = {
             'YYYY': year,
             'MM': this.formatNum(month),
@@ -108,74 +117,82 @@ class Comm {
             'hh': this.formatNum(hour),
             'mm': this.formatNum(minute),
             'ss': this.formatNum(second)
-        }
+        };
+
         for (let i in o) {
-            str = str.replace(i, o[i])
+            str = str.replace(i, o[i]);
         }
-        return str
+        return str;
     }
 
     /**
      * 数字补0，返回字符串
      */
     formatNum (n) {
-        n = n.toString()
-        return n[1] ? n : '0' + n
+        n = n.toString();
+        return n[1] ? n : '0' + n;
     }
 
     /**
      * 触发非常频繁的事件合并成一次延迟执行
      */
     debounce (action, delay) {
-        var timer = null
+        var timer = null;
 
         return function () {
-            var self = this
-            var args = arguments
+            var args = arguments;
 
-            clearTimeout(timer)
-            timer = setTimeout(function () {
-                action.apply(self, args)
-            }, delay)
-        }
+            clearTimeout(timer);
+            timer = setTimeout( () => {
+                action.apply(this, args)
+            }, delay);
+        };
     }
 
     /**
      * 设置一个阀值，在阀值内，把触发的事件合并成一次执行；当到达阀值，必定执行一次事件
      */
     throttle (action, delay) {
-        var statTime = 0
+        var statTime = 0;
 
         return function () {
-            var currTime = +new Date()
+            var currTime = Number(new Date());
 
             if (currTime - statTime > delay) {
-                action.apply(this, arguments)
-                statTime = currTime
+                action.apply(this, arguments);
+                statTime = currTime;
             }
-        }
+        };
     }
 
     // 计算两个时间之间的倒计时
     computeTime (endtime) {
         try {
             // console.log(start, end)
-            let end = new Date(endtime * 1000).getTime()
-            let start = new Date().getTime()
-            let t = end - start > 0 ? end - start : 0
+            let end = new Date(endtime * 1000).getTime();
+
+            let start = new Date().getTime();
+
+            let t = end - start > 0 ? end - start : 0;
             // console.log(new Date(endtime*1000).toLocaleDateString())
+
             if (t > 0) {
-                let d = Math.floor(t / 1000 / 60 / 60 / 24)
-                let hour = Math.floor(t / 1000 / 60 / 60 % 24)
-                let min = Math.floor(t / 1000 / 60 % 60)
-                let sec = Math.floor(t / 1000 % 60)
-                let countDownTime = d + ':' + this.formatNum(hour) + ':' + this.formatNum(min) + ':' + this.formatNum(sec)
-                return countDownTime
-            } else {
-                return '00:00:00'
+                let d = Math.floor(t / 1000 / 60 / 60 / 24);
+
+                let hour = Math.floor(t / 1000 / 60 / 60 % 24);
+
+                let min = Math.floor(t / 1000 / 60 % 60);
+
+                let sec = Math.floor(t / 1000 % 60);
+
+                let countDownTime = d + ':' + this.formatNum(hour) + ':' + this.formatNum(min) + ':' + this.formatNum(sec);
+
+                return countDownTime;
             }
+            return '00:00:00';
+
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
     }
 
@@ -184,7 +201,7 @@ class Comm {
      * @param {*} str
      */
     trim (str) {
-        return str.replace(/(^\s|\s$)/g, '')
+        return str.replace(/(^\s|\s$)/g, '');
     }
 
     /**
@@ -194,20 +211,21 @@ class Comm {
      */
     createRangeArr (min, max) {
         if (typeof min !== 'number' && typeof max !== 'number') {
-            throw new Error('min和max必须是整数数值类型')
+            throw new Error('min和max必须是整数数值类型');
         }
-        let arr = []
+        let arr = [];
+
         for (let i = min; i <= max; i++) {
-            arr.push(i)
+            arr.push(i);
         }
-        return arr
+        return arr;
     }
 
     /**
      * 获取数据类型
      */
     getType (target) {
-        return Object.prototype.toString.call(target).toLowerCase().match(/\w+(?=])/)[0]
+        return Object.prototype.toString.call(target).toLowerCase().match(/\w+(?=])/)[0];
     }
 
     /**
@@ -216,18 +234,19 @@ class Comm {
      * @param {any} b
      */
     eq (a, b) {
-        if (this.getType(a) !== this.getType(b)) return false
+        if (this.getType(a) !== this.getType(b)) {
+            return false ;
+        }
         switch (this.getType(a)) {
         case 'string':
         case 'number':
         case 'undefined':
-        case 'null':
-            return a === b
+        case 'null': return a === b;
         case 'object':
-        case 'array':
-            return JSON.stringify(a) === JSON.stringify(b)
+        case 'array': return JSON.stringify(a) === JSON.stringify(b);
+        default: return false
         }
     }
 }
 
-export default new Comm()
+export default new Comm();

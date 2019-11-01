@@ -1,11 +1,7 @@
 <template>
     <transition name="bounce">
-        <div
-            :class="['popup toast-box']"
-            v-if="show"
-            @click.self="onPopup('cancel')"
-        >
-            <div :class="['toast',align]">
+        <div class="ms-box" v-if="show" @click.self="clickPopup('close')">
+            <div :class="['ms-toast',`align`]">
                 <div>{{message}}</div>
             </div>
         </div>
@@ -19,11 +15,9 @@ export default {
         return {
             show: false,
             message: '',
-            time: 0,
+            time: 3000,
             timer: null,
-            callback: null,
-            isClickOtherClose: false, // 是否点击蒙层关闭toast
-            action: '',
+            isClickOtherClose: true, // 是否点击蒙层关闭toast
             align: 'center'
         }
     },
@@ -35,9 +29,8 @@ export default {
         }
     },
     methods: {
-        onPopup (action) {
-            if (!this.isClickOtherClose) return
-            this.handleAction(action)
+        clickPopup (action) {
+            if (this.isClickOtherClose) this.handleAction(action)
         },
         handleAction (action) {
             this.action = action
@@ -59,36 +52,23 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
-.popup-wrap {
-    > .popup {
-        &.toast-box {
-            background: transparent;
-            z-index: $--z-index-8;
-        }
+
+.ms-toast{
+    background: rgba(0, 0, 0, .8);
+    padding: 20px 25px;
+    color: #ffffff;
+    border-radius: .4rem;
+    &.top{
+        align-self: flex-start;
+        margin-top: 2rem;
+    }
+    &.bottom{
+        align-self: flex-end;
+        margin-bottom: 2rem;
     }
 }
 
-.popup.toast-box {
-    color: $--color-text;
-    font-size: 1.4rem;
-    flex-direction: row;
-    .toast{
-        background: rgba(0, 0, 0, .8);
-        padding: 20px 25px;
-        color: #ffffff;
-        border-radius: .4rem;
-        @extend %flexcenter;
-        &.top{
-            align-self: flex-start;
-            margin-top: 2rem;
-        }
-        &.bottom{
-            align-self: flex-end;
-            margin-bottom: 2rem;
-        }
-    }
-}
 </style>

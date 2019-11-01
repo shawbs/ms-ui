@@ -192,18 +192,6 @@
     }
 }
 
-@keyframes rotate {
-    0% {
-        transform:rotate(0deg);
-    }
-    100% {
-        transform:rotate(360deg);
-    }
-}
-.rotate{
-    animation: rotate 1.5s infinite linear;
-}
-
 .scale{
     animation: scale 2s infinite;
 }
@@ -216,6 +204,15 @@
 .tada-y{
     animation: tada-y 2s linear infinite;
     // animation-fill-mode: both;
+}
+
+@keyframes rotating {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
 }
 
 // 放大效果
