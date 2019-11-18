@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import util from '@/utils'
+import util from '../../utils'
 export default {
     name: 'MsImg',
     props: {

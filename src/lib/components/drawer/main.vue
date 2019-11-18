@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import util from '@/utils'
 export default {
     name: 'MsDrawer',
     props: {

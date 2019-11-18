@@ -1,0 +1,57 @@
+// base
+$--font-family: 微软雅黑, PingFang, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !default;
+$--body-font-size: 10px !default;
+$--line-height: 1.5 !default;
+
+$--headerHeight: 60px;
+$--footerHeight: 60px;
+// 间距
+$--margin-small: 10px !default;
+$--margin: 20px !default;
+$--margin-large: 40px !default;
+$--padding-small: 10px !default;
+$--padding: 20px !default;
+$--padding-large: 40px !default;
+
+$--bold: 800;
+
+// 层次
+$--z-index-0:    -1;
+$--z-index-1:   100;
+$--z-index-2:   200;
+$--z-index-3:   300;
+$--z-index-4:   400;
+$--z-index-5:   500;
+$--z-index-6:   600;
+$--z-index-7:   700;
+$--z-index-8:   800;
+$--z-index-9:   900;
+
+// color
+$--color-disabled: #D5D6D8 !default;
+$--color-primary: #085594 !default;
+$--color-success: #67c239 !default;
+$--color-warning: #FF7542 !default;
+$--color-danger: #f56c6c !default;
+$--color-gray: #999999 !default;
+$--color-dark: #000000 !default;
+$--color-border: #ebedf0 !default;
+$--color-body: #ebedf0 !default;
+$--color-text: #212121 !default;
+
+// other
+$--radius: 8px !default;
+$--border: 1px solid $--color-border;
+$--shadow: 0px 2px 4px 0px rgba(232,232,232,0.5);
+
+// button
+$--btn-height-small: 30px;
+$--btn-height: 40px;
+$--btn-height-large: 45px;
+
+// input
+$--input-height-small: 30px;
+$--input-height: 40px;
+$--input-height-large: 45px;
+
+$--tabbar-height: 60px;
