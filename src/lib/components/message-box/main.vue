@@ -1,48 +1,51 @@
 <template>
-            <transition name="bounce">
-                <div class="ms-box" v-if="visiable" @click.self="clickPopup('close')">
-                    <div class="ms-message-box" >
-                        <div
-                            class="__header"
-                            v-if="title">
-                            <div class="label">{{ title }}</div>
-                        </div>
-
-                        <ms-icon @click="handleAction('close')" v-if="showCloseBtn" icon="close" class="close-btn"></ms-icon>
-                        <div class="__body">
-                            <div
-                                class="message"
-                                v-html="message"/>
-                            <ms-input v-model="inputValue" v-if="showInput"></ms-input>
-                        </div>
-                        <div class="__footer">
-                            <ms-button
-                                size="large"
-                                v-if="showCancelBtn"
-                                @click.native="handleAction('cancel')"
-                            >{{ cancelBtnText }}
-                            </ms-button>
-                            <ms-button
-                                size="large"
-                                type="primary"
-                                v-if="showConfirmBtn"
-                                @click.native="handleAction('confirm')"
-                            >{{ confirmBtnText }}
-                            </ms-button>
-                        </div>
-
+    <ms-popup center :value="visiblePopup" @click.native.self="clickPopup">
+        <transition name="bounce">
+            <!-- <div class="ms-box" v-if="visible" @click.self="clickPopup('close')"> -->
+                <div class="ms-message" v-if="visible" @animationend="hidePopup">
+                    <div
+                        class="__header"
+                        v-if="title">
+                        <div class="label">{{ title }}</div>
                     </div>
+
+                    <ms-icon @click="handleAction('close')" v-if="showCloseBtn" icon="close" class="close-btn"></ms-icon>
+                    <div class="__body">
+                        <div
+                            class="message"
+                            v-html="message"/>
+                        <ms-input v-model="inputValue" v-if="showInput"></ms-input>
+                    </div>
+                    <div class="__footer">
+                        <ms-button
+                            size="large"
+                            v-if="showCancelBtn"
+                            @click.native="handleAction('cancel')"
+                        >{{ cancelBtnText }}
+                        </ms-button>
+                        <ms-button
+                            size="large"
+                            type="primary"
+                            v-if="showConfirmBtn"
+                            @click.native="handleAction('confirm')"
+                        >{{ confirmBtnText }}
+                        </ms-button>
+                    </div>
+
                 </div>
-            </transition>
+            <!-- </div> -->
+        </transition>
+    </ms-popup>
 </template>
 
 <script>
-import Mask from '../mask'
+
 export default {
     name: 'MsMessageBox',
     data () {
         return {
-            visiable: false,
+            visiblePopup: false,
+            visible: false,
             showCancelBtn: false,
             cancelBtnText: '取消',
             showConfirmBtn: true,
@@ -54,28 +57,42 @@ export default {
             inputType: 'text',
             inputValue: '',
             placeholder: '请输入',
-            isClickOtherClose: true
+            isClickOtherClose: true,
+
+            callback: null,
+            beforeClose: null
         }
     },
     methods: {
-        handleAction (action) {
-            console.log(action)
-            if (this.closeBefore){
-                if (this.closeBefore()) this.show = false
-            } else {
-                this.close()
-                this.callback && this.callback(action, this)
-            }
+        handleAction(action){
+            this.callback && this.callback(action)
+            this.close()
         },
         show(){
-            this.visiable = true
+            this.visiblePopup = true
+            this.$nextTick(()=>{
+                this.visible = true
+            })
         },
         close(){
-            Mask.hide()
-            this.visiable = false
+            if (this.beforeClose){
+                this.beforeClose().then(_ => {
+                    this.visible = false
+                })
+            } else {
+                this.visible = false
+            }
         },
-        clickPopup(action){
-            if (this.isClickOtherClose) this.handleAction(action)
+        hidePopup(){
+            console.log(1, this.visible)
+            if (this.visible === false){
+                this.visiblePopup = false
+            }
+        },
+        clickPopup(){
+            if (this.isClickOtherClose){
+                this.handleAction('close')
+            }
         }
     }
 }
@@ -85,7 +102,7 @@ export default {
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
 
-.ms-message-box {
+.ms-message {
     position: relative;
     min-width: 280px;
     max-width: 375px;

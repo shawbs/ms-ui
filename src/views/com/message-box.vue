@@ -6,13 +6,30 @@
             <ms-button @click.native="$msgbox.alert('alert')">alert</ms-button>
             <ms-button @click.native="$msgbox.confirm('confirm',{title: '标题'})">confirm</ms-button>
             <ms-button @click.native="$msgbox.prompt('prompt',{title: '标题'})">prompt</ms-button>
+            <ms-button @click.native="beforeClose">before close handle</ms-button>
         </ms-container>
     </ms-page>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        beforeClose(){
+            this.$msgbox.prompt(
+                'prompt',
+                {
+                    title: '标题',
+                    beforeClose: _ => {
+                        return new Promise((resolve, reject)=>{
+                            console.log('before close')
+                            setTimeout(() => {
+                                resolve()
+                            }, 3000);
+                        })
+                    }
+                })
+        }
+    }
 }
 </script>
 

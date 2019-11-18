@@ -1,4 +1,3 @@
-const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 class Comm {
 

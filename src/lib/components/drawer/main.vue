@@ -1,11 +1,11 @@
 <template>
-    <div class="ms-drawer" @click.self="close" v-if="value">
+    <ms-popup @click.native.self="close" :value="value">
         <transition :name="direction">
-            <div class="ms-drawer-box" :class="[`is-${direction}`]" v-if="visible" :style="{width}" @animationend="animationend">
+            <div class="ms-drawer" :class="[`is-${direction}`]" v-if="visible" :style="{width}" @animationend="hidePopup">
                 <slot />
             </div>
         </transition>
-    </div>
+    </ms-popup>
 </template>
 
 <script>
@@ -50,7 +50,7 @@ export default {
         close(){
             this.visible = false
         },
-        animationend(){
+        hidePopup(){
             if (this.visible === false){
                 this.$emit('input', false)
                 this.$emit('close')
@@ -64,16 +64,6 @@ export default {
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
 .ms-drawer{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(#000, .5);
-    z-index: $--z-index-7;
-
-}
-.ms-drawer-box{
     position: fixed;
     top: 0;
     left: 0;

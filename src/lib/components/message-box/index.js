@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import main from './main'
-import Mask from '../mask'
+
 
 const ComponentConstructor = Vue.extend(main)
 var instance = null
 const defaultOption = {
-    visiable: true,
+    visiablePopup: false,
+    visiable: false,
     showCancelBtn: false,
     cancelBtnText: '取消',
     showConfirmBtn: true,
@@ -17,12 +18,17 @@ const defaultOption = {
     inputType: 'text',
     inputValue: '',
     placeholder: '请输入',
-    isClickOtherClose: true
+    isClickOtherClose: true,
+
+    callback: action => {
+        console.log(action)
+    },
+    beforeClose: null
 }
 
 function Plugin(){}
 function craeteInstance(){
-    Mask.show()
+
     if (!instance){
         instance = new ComponentConstructor()
         const root = document.documentElement
@@ -42,6 +48,7 @@ Plugin.alert = function(message, opt = {}) {
     for (let i in opt){
         instance[i] = opt[i]
     }
+    instance.show()
 }
 
 Plugin.confirm = function(message, opt = {}) {
@@ -55,6 +62,7 @@ Plugin.confirm = function(message, opt = {}) {
     for (let i in opt){
         instance[i] = opt[i]
     }
+    instance.show()
 }
 
 Plugin.prompt = function(message, opt = {}) {
@@ -69,6 +77,7 @@ Plugin.prompt = function(message, opt = {}) {
     for (let i in opt){
         instance[i] = opt[i]
     }
+    instance.show()
 }
 
 export default Plugin
