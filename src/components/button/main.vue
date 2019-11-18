@@ -1,10 +1,11 @@
 <template>
     <button class="ms-button" :class="[
     `ms-${type}-button`,
-    {'is-block': isBlock},
-    {'is-disabled': disabled},
+    {'is-block': block},
+    {'is-disabled': disabled || loading},
     `ms-button-${buttonSize}`
     ]" :type="htmlType" :disabled="disabled">
+        <ms-icon v-if="loading" icon="loading"></ms-icon>
         <ms-icon v-if="icon" :icon="icon"></ms-icon>
         <slot />
     </button>
@@ -23,13 +24,14 @@ export default {
             default: 'button'
         },
         disabled: Boolean,
-        isBlock: Boolean,
+        block: Boolean,
         icon: String,
+        loading: Boolean,
         size: String // small medium large
     },
     computed: {
         buttonSize(){
-            return this.$MS_OPTION.size || 'medium'
+            return this.size || this.$MS_OPTION.size || 'medium'
         }
     }
 

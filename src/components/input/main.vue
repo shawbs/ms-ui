@@ -9,14 +9,15 @@
             :maxlength="maxlength"
             :placeholder="placeholder"
             :rows="rows"
-            v-model="myValue"
+            :value="value"
+            @input="changeHandle"
             />
         </div>
-        <template v-else>
+        <div class="ms-input" v-else>
             <span class="ms-input__prepend" v-if="$slots.prepend">
                 <slot name="prepend"/>
             </span>
-            <div class="ms-input" :class="[
+            <div class="ms-input-control" :class="[
             `ms-input--${inputSize}`,
             $slots.prepend ? 'ms-input--prepend' : '',
             $slots.prefix ? 'ms-input--prefix' : '',
@@ -34,9 +35,10 @@
                 :name="name"
                 :type="type"
                 :maxlength="maxlength"
-                v-model="myValue"
+                :value="value"
+                @input="changeHandle"
                 />
-                <span class="ms-input__suffix" v-if="showClose && myValue.length > 0" @click="myValue=''">
+                <span class="ms-input__suffix" v-if="showClose && value.length > 0" @click="clearHandle">
                     <ms-icon icon="close"></ms-icon>
                 </span>
                 <span class="ms-input__suffix" v-else>
@@ -46,7 +48,7 @@
             <span class="ms-input__append" v-if="$slots.append">
                 <slot name="append"/>
             </span>
-        </template>
+        </div>
     </div>
 </template>
 
@@ -71,7 +73,7 @@ export default {
             default: '请输入'
         },
         value: {
-            type: String,
+            type: [String, Number],
             default: ''
         },
         name: {
@@ -90,26 +92,23 @@ export default {
         showClose: Boolean
     },
 
-    data () {
-        return {
-            myValue: this.value
-        }
-    },
-
     computed: {
         inputSize(){
-            return this.$MS_OPTION.size || 'medium'
+            return this.size || this.$MS_OPTION.size || 'medium'
+        },
+        myValue(){
+            return this.value === null || this.value === undefined ? '' : String(this.value);
         }
     },
 
-    watch: {
-        myValue (val) {
-            this.$emit('input', val)
+    methods: {
+        changeHandle(e){
+            if (e.target.value === this.myValue) return
+            this.$emit('input', e.target.value)
+        },
+        clearHandle(){
+            this.$emit('input', '')
         }
-    },
-
-    mounted(){
-        console.log(this)
     }
 }
 </script>
@@ -119,8 +118,28 @@ export default {
 @import '@/style/mixins.scss';
 $--radius: 4px;
     .ms-input-box{
-        display: flex;
+        // display: inline-block;
+        .ms-textarea{
+            width: 100%;
+            .ms-input__inner{
+                width: 100%;
+                border: $--border;
+                border-radius: $--radius;
+                padding: $--padding-small;
+                line-height: 1.5;
+                &:focus,&:hover{
+                    border-color: $--color-primary;
+                }
+            }
+        }
+
+        // input
         .ms-input{
+            display: flex;
+            position: relative;
+        }
+        .ms-input-control{
+            width: 100%;
             display: flex;
             align-items: center;
             position: relative;
@@ -130,6 +149,7 @@ $--radius: 4px;
                 height: $--input-height;
                 line-height: $--input-height;
                 padding: 0 $--padding-small;
+                width: 100%;
                 &:focus,&:hover{
                     border-color: $--color-primary;
                 }

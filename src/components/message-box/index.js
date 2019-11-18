@@ -10,7 +10,7 @@ const defaultOption = {
     cancelBtnText: '取消',
     showConfirmBtn: true,
     confirmBtnText: '确认',
-    showCloseBtn: true,
+    showCloseBtn: false,
     title: '',
     message: '',
     showInput: false,

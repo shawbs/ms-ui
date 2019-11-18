@@ -45,3 +45,9 @@ input, textarea, button{
         outline: none;
     }
 }
+
+input,textarea{
+    font-family: inherit;
+    font-size: inherit;
+    vertical-align: middle;
+}

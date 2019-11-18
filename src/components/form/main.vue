@@ -7,13 +7,9 @@
 <script>
 import AsyncValidator from 'async-validator';
 export default {
-    'name': 'MsForm',
-    provide () {
-        return {
-            'MsForm': this
-        };
-    },
-    'props': {
+    name: 'MsForm',
+    componentName: 'MsFrom',
+    props: {
         'model': Object,
         'rules': Object,
         'labelWidth': String
@@ -24,7 +20,7 @@ export default {
             'formError': {}
         };
     },
-    'computed': {
+    computed: {
         formRules () {
             const descriptor = {};
 
@@ -47,7 +43,7 @@ export default {
             }, {});
         }
     },
-    'methods': {
+    methods: {
         validate (callback) {
             const validator = new AsyncValidator(this.formRules);
 
@@ -69,7 +65,8 @@ export default {
                         errInfo.push(formError[prop]);
                     }
                 });
-                callback(errInfo);
+                // eslint-disable-next-line standard/no-callback-literal
+                callback(errInfo.length === 0);
             });
         },
         clearValidate () {

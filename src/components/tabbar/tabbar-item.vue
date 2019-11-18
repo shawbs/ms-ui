@@ -3,8 +3,11 @@
         <div class="ms-tab-item-box">
             <div class="ms-tab-item-bage" v-if="bage"><span>{{bage}}</span></div>
             <div class="ms-tab-item-dot" v-if="isDot"></div>
-            <div class="ms-tab-item-icon"><ms-icon :icon="icon || 'home'"></ms-icon></div>
-            <div class="ms-tab-item-label"><slot /></div>
+            <template v-if="!$slots.default">
+                <div class="ms-tab-item-icon"><ms-icon :icon="icon || 'home'"></ms-icon></div>
+                <div class="ms-tab-item-label">{{label}}</div>
+            </template>
+            <slot/>
         </div>
     </div>
 </template>
@@ -18,6 +21,7 @@ export default {
         activeColor: String,
         isDot: Boolean,
         bage: String,
+        label: String,
         name: {
             required: true,
             type: [String,Number]
@@ -70,6 +74,7 @@ export default {
         color: white;
         border-radius: 10px;
         overflow: hidden;
+        z-index: 1;
         >span{
             display: inline-block;
             transform: scale(.8);

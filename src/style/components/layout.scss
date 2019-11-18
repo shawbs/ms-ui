@@ -8,13 +8,13 @@ body,
     overflow: hidden;
 }
 
-.tab-page{
-    .page{
+.ms-tab-page{
+    >.ms-page{
         bottom: $--tabbar-height;
     }
 }
 
-.page {
+.ms-page {
     position: absolute;
     top: 0;
     right: 0;

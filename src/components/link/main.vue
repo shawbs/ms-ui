@@ -4,7 +4,7 @@
         `ms-link--${type}`,
         disabled ? 'is-disabled' : ''
         ]"
-        :href="href"
+        :href="disabled ? 'javascript:;':href"
         :target="target">
         <slot />
     </a>

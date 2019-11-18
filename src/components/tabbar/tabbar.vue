@@ -1,5 +1,5 @@
 <template>
-    <div :class="['ms-tabbar']" :style="{order:order}">
+    <div :class="['ms-tabbar', `is-${position}`]">
         <slot/>
     </div>
 </template>
@@ -10,7 +10,7 @@ export default {
     props: {
         position: {
             type: String,
-            default: 'bottom'
+            default: 'default'
         },
         value: [String, Number]
     },
@@ -36,15 +36,24 @@ export default {
 @import '@/style/variables.scss';
 @import '@/style/mixins.scss';
 .ms-tabbar{
-    position: fixed;
-    bottom: 0;
-    left: 0;
     height: $--tabbar-height;
     width: 100%;
     display: flex;
     align-items: stretch;
-    border-top: $--border;
     background: #fff;
-    z-index: $--z-index-3;
+    &.is-bottom{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: $--z-index-3;
+        border-top: $--border;
+    }
+    &.is-top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: $--z-index-3;
+        border-bottom: $--border;
+    }
 }
 </style>

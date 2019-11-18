@@ -1,5 +1,8 @@
 <template>
-    <div class="ms-form-item" :class="`ms-form-item-${size}`">
+    <div class="ms-form-item" :class="[
+    `ms-form-item-${size}`,
+    checkRequired() ? 'is-required' : ''
+    ]">
         <div class="ms-form-item-label" :style="{width: labelWidth}">{{label}}</div>
         <div class="ms-form-item-content">
             <slot />
@@ -16,18 +19,26 @@ export default {
         required: Boolean,
         prop: String
     },
-    inject: ['MsForm'],
     computed: {
+        form(){
+            let parent = this.$parent;
+            let parentName = parent ? parent.$options.componentName : ''
+            while (parent && parentName !== 'MsFrom'){
+                parent = parent.$parent;
+                parentName = parent ? parent.$options.componentName : '';
+            }
+            return parent
+        },
         fieldError () {
             if (!this.prop) {
                 return ''
             }
-            const formError = this.MsForm.formError
+            const formError = this.form.formError
 
             return formError[this.prop] || ''
         },
         labelWidth () {
-            return this.MsForm.labelWidth ? this.MsForm.labelWidth : 'auto'
+            return this.form.labelWidth ? this.form.labelWidth : 'auto'
         },
         size(){
             return this.$MS_OPTION.size || 'medium'
@@ -35,11 +46,20 @@ export default {
     },
     methods: {
         dispatchEvent (eventName, params) {
-            if (typeof this.MsForm !== 'object' && !this.MsForm.$emit) {
+            if (typeof this.form !== 'object' && !this.form.$emit) {
                 console.error('FormItem必须在Form组件内')
                 return
             }
-            this.MsForm.$emit(eventName, params)
+            this.form.$emit(eventName, params)
+        },
+        checkRequired(){
+            if (this.prop && this.form.rules[this.prop]){
+                let rules = this.form.rules[this.prop]
+                let isRequired = rules.find(item => item.required) || this.required
+                return isRequired
+            }
+            return false
+
         }
     },
     mounted () {
@@ -68,6 +88,13 @@ export default {
 .ms-form-item{
     display: flex;
     margin-bottom: $--margin;
+    &.is-required{
+        .ms-form-item-label::after{
+            content: '*';
+            color: $--color-danger;
+            margin: 0 5px;
+        }
+    }
     .ms-form-item-label{
         flex: none;
         line-height: $--input-height;

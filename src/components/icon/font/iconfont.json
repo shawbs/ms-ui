@@ -1,7 +1,7 @@
 {
   "id": "1487251",
   "name": "ms-ui",
-  "font_family": "ms-font",
+  "font_family": "ms-icon",
   "css_prefix_text": "ms-icon-",
   "description": "",
   "glyphs": [
@@ -13,16 +13,37 @@
       "unicode_decimal": 59051
     },
     {
+      "icon_id": "722174",
+      "name": "radio",
+      "font_class": "radio1",
+      "unicode": "e75e",
+      "unicode_decimal": 59230
+    },
+    {
+      "icon_id": "722175",
+      "name": "radio-active",
+      "font_class": "radio1-on",
+      "unicode": "e75f",
+      "unicode_decimal": 59231
+    },
+    {
+      "icon_id": "736603",
+      "name": "check-box-blank",
+      "font_class": "checkbox",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
       "icon_id": "736606",
       "name": "check-box",
-      "font_class": "checkbox",
+      "font_class": "checkbox-on",
       "unicode": "e63d",
       "unicode_decimal": 58941
     },
     {
       "icon_id": "959407",
       "name": "radio",
-      "font_class": "radio",
+      "font_class": "radio-on",
       "unicode": "e653",
       "unicode_decimal": 58963
     },
@@ -39,6 +60,13 @@
       "font_class": "arrow-left",
       "unicode": "e6fd",
       "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "6242438",
+      "name": "radio",
+      "font_class": "radio",
+      "unicode": "e7c9",
+      "unicode_decimal": 59337
     },
     {
       "icon_id": "6978741",
@@ -74,6 +102,13 @@
       "font_class": "checkbox-o",
       "unicode": "ec58",
       "unicode_decimal": 60504
+    },
+    {
+      "icon_id": "7811201",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e607",
+      "unicode_decimal": 58887
     }
   ]
 }

@@ -10,8 +10,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app{
   font-size: 1.4rem;
+  .ms-container{
+      padding: 0 10px;
+  }
+  .ms-button{
+      margin-bottom: 10px;
+  }
 }
+
 </style>

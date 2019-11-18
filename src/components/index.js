@@ -3,6 +3,7 @@ import MsgBox from './message-box'
 import Container from './layout/container'
 import Footer from './layout/footer'
 import Header from './layout/header'
+import MsPage from './layout/page'
 import Link from './link/main'
 import Button from './button/main'
 import ButtonGroup from './button-group/main'
@@ -14,11 +15,20 @@ import TabbarItem from './tabbar/tabbar-item'
 import Popup from './popup/main'
 import Toast from './toast'
 import Icon from './icon/main'
+import Img from './img/main'
+import Row from './row/main'
+import Col from './row/col'
+import Radio from './radio/main'
+import RadioGroup from './radio/group'
+import Checkbox from './checkbox/main'
+import CheckboxGroup from './checkbox/group'
+import Drawer from './drawer/main'
 
 const components = [
     Container,
     Footer,
     Header,
+    MsPage,
     Link,
     Button,
     Input,
@@ -28,7 +38,15 @@ const components = [
     TabbarItem,
     Popup,
     Icon,
-    ButtonGroup
+    ButtonGroup,
+    Img,
+    Row,
+    Col,
+    Radio,
+    RadioGroup,
+    Checkbox,
+    CheckboxGroup,
+    Drawer
 ]
 
 const install = function (Vue, opts = {}) {
@@ -36,7 +54,7 @@ const install = function (Vue, opts = {}) {
         Vue.component(component.name, component)
     })
     Vue.prototype.$MS_OPTION = {
-        size: opts.size || 'large',
+        size: opts.size || 'medium',
         zIndex: opts.size || 2000
     }
 
@@ -58,6 +76,7 @@ export default {
     Loading,
     MsgBox,
     Container,
+    MsPage,
     Footer,
     Header,
     Button,
@@ -68,5 +87,13 @@ export default {
     TabbarItem,
     Popup,
     Icon,
-    ButtonGroup
+    ButtonGroup,
+    Img,
+    Row,
+    Col,
+    Radio,
+    RadioGroup,
+    Checkbox,
+    CheckboxGroup,
+    Drawer
 }

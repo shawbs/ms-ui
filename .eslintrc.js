@@ -52,7 +52,7 @@ module.exports = {
         "no-label-var": 2,//label名不能与var声明的变量名相同
         "no-labels": 2,//禁止标签声明
         "no-lone-blocks": 2,//禁止不必要的嵌套块
-        "no-lonely-if": 2,//禁止else语句内只有if语句
+        "no-lonely-if": 0,//禁止else语句内只有if语句
         "no-loop-func": 1,//禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
         "no-mixed-requires": [0, false],//声明时不能混用声明类型
         "no-mixed-spaces-and-tabs": [2, false],//禁止混用tab和空格
@@ -96,7 +96,7 @@ module.exports = {
         "no-throw-literal": 2,//禁止抛出字面量错误 throw "error";
         "no-undef": 1,//不能有未定义的变量
         "no-undef-init": 2,//变量初始化时不能直接给它赋值为undefined
-        "no-undefined": 2,//不能使用undefined
+        "no-undefined": 0,//不能使用undefined
         "no-unexpected-multiline": 2,//避免多行表达式
         "no-underscore-dangle": 1,//标识符不能以_开头或结尾
         "no-unneeded-ternary": 2,//禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
@@ -149,7 +149,7 @@ module.exports = {
         "max-statements": [0, 10],//函数内最多有几个声明
         "new-cap": 2,//函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
         "new-parens": 2,//new时必须加小括号
-        "newline-after-var": 2,//变量声明后是否需要空一行
+        "newline-after-var": 0,//变量声明后是否需要空一行
         "object-curly-spacing": [0, "never"],//大括号内是否允许不必要的空格
         "object-shorthand": 0,//强制对象字面量缩写语法
         "one-var": 1,//连续声明
@@ -182,6 +182,7 @@ module.exports = {
         "vars-on-top": 2,//var必须放在作用域顶部
         "wrap-iife": [2, "inside"],//立即执行函数表达式的小括号风格
         "wrap-regex": 0,//正则表达式字面量用小括号包起来
+        "no-callback-literal": 0,
         "yoda": [2, "never"]//禁止尤达条件
     },
     parserOptions: {

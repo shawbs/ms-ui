@@ -8,7 +8,7 @@
                             <div class="label">{{ title }}</div>
                         </div>
 
-                        <i @click="handleAction('close')" v-if="showCloseBtn" class="iconfont close-btn icon-close"></i>
+                        <ms-icon @click="handleAction('close')" v-if="showCloseBtn" icon="close" class="close-btn"></ms-icon>
                         <div class="__body">
                             <div
                                 class="message"
@@ -17,11 +17,13 @@
                         </div>
                         <div class="__footer">
                             <ms-button
+                                size="large"
                                 v-if="showCancelBtn"
                                 @click.native="handleAction('cancel')"
                             >{{ cancelBtnText }}
                             </ms-button>
                             <ms-button
+                                size="large"
                                 type="primary"
                                 v-if="showConfirmBtn"
                                 @click.native="handleAction('confirm')"
@@ -45,7 +47,7 @@ export default {
             cancelBtnText: '取消',
             showConfirmBtn: true,
             confirmBtnText: '确认',
-            showCloseBtn: true,
+            showCloseBtn: false,
             title: '',
             message: '',
             showInput: false,
@@ -85,21 +87,22 @@ export default {
 
 .ms-message-box {
     position: relative;
-    min-width: 250px;
-    max-width: 417px;
+    min-width: 280px;
+    max-width: 375px;
     min-height: 100px;
     max-height: 80%;
-    width: 50%;
+    width: 80%;
     background-color: #fff;
     border-radius: $--radius;
     overflow: hidden;
 
     .__header{
+        padding-top: $--padding-small;
         height: $--btn-height;
         line-height: $--btn-height;
         text-align: center;
-        font-size: 1.2em;
-        border-bottom: $--border;
+        font-size: 15px;
+        // border-bottom: $--border;
     }
 
     .__body {
@@ -108,10 +111,13 @@ export default {
         justify-content: center;
         align-items: center;
         min-height: 90px;
-        padding: $--padding-small;
+        font-size: 15px;
+        padding: $--padding;
         .message{
             word-break: break-all;
-            margin-bottom: $--margin-small;
+        }
+        .ms-input{
+            margin-top: $--margin-small;
         }
     }
     > .close-btn {
@@ -127,15 +133,31 @@ export default {
         display: flex;
         border-top: $--border;
         .ms-button{
-            border-radius: 0;
             flex: 1;
-            border-color: transparent;
-            height: $--btn-height;
-            line-height: $--btn-height;
+            background: transparent;
+            border: none;
+            font-size: 15px;
             &:hover,&:focus{
-                border-color: transparent;
+                background: transparent;
+                border: none;
+            }
+            &:active{
+                background: $--color-border;
+            }
+            &.ms-primary-button{
+                color: $--color-primary;
             }
         }
+        // .ms-button{
+        //     // border-radius: 0;
+        //     // flex: 1;
+        //     border-color: transparent;
+        //     height: $--btn-height;
+        //     line-height: $--btn-height;
+        //     &:hover,&:focus{
+        //         border-color: transparent;
+        //     }
+        // }
     }
 }
 
