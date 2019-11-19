@@ -52,23 +52,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '@/style/variables.scss';
-@import '@/style/mixins.scss';
-
-.ms-toast{
-    background: rgba(0, 0, 0, .8);
-    padding: 20px 25px;
-    color: #ffffff;
-    border-radius: .4rem;
-    &.top{
-        align-self: flex-start;
-        margin-top: 2rem;
-    }
-    &.bottom{
-        align-self: flex-end;
-        margin-bottom: 2rem;
-    }
-}
-
-</style>

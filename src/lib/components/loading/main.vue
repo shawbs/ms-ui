@@ -34,20 +34,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '@/style/variables.scss';
-@import '@/style/mixins.scss';
-
-.ms-loading{
-    background: rgba(0, 0, 0, .8);
-    padding: 20px 25px;
-    color: #ffffff;
-    border-radius: .4rem;
-    text-align: center;
-    .ms-icon-loading{
-        font-size: 24px;
-    }
-}
-
-</style>
-

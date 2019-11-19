@@ -1,22 +1,25 @@
 {
-  "name": "@shawbs/msab-ui",
-  "version": "0.1.0",
+  "name": "@shawbs/ms-ui",
+  "version": "0.1.2",
+  "author": "shawbs",
+  "description":"A mobile Vue component library",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
-    "build-bundle": "vue-cli-service build --target lib --name msab-ui ./src/components/index.js"
+    "build-bundle": "vue-cli-service build --target lib --name ms-ui ./src/lib/components/index.js"
   },
   "keywords": [
-    "msab",
+    "ms",
     "vue",
     "components"
   ],
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
-  "main": "./dist/msab-ui.common.js",
+  "main": "./dist/ms-ui.common.js",
   "dependencies": {
     "async-validator": "^3.2.0",
     "core-js": "^3.3.2",

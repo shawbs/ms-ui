@@ -1,0 +1,123 @@
+.ms-button{
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-size: 14px;
+    padding: 0 $--padding;
+    height: $--btn-height;
+    line-height: $--btn-height;
+    border-radius: 4px;
+    &.ms-button-small{
+        font-size: 12px;
+        height: $--btn-height-small;
+        line-height: $--btn-height-small;
+    }
+    &.ms-button-medium{
+        font-size: 16px;
+        height: $--btn-height;
+        line-height: $--btn-height;
+    }
+    &.ms-button-large{
+        font-size: 18px;
+        height: $--btn-height-large;
+        line-height: $--btn-height-large;
+    }
+    &.is-block{
+        display: block;
+        width: 100%;
+    }
+    &.ms-default-button{
+        background: #fff;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        &:hover,&:focus{
+            color: $--color-text;
+            border: 1px solid rgba($--color-text,.7);
+        }
+        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+            cursor: not-allowed;
+            opacity: .8;
+            background: #fff;
+            border: 1px solid #dcdfe6;
+        }
+    }
+    &.ms-primary-button{
+        color: #fff;
+        border: 1px solid rgba($--color-primary, .7);
+        background: $--color-primary;
+        &:hover,&:focus{
+            color: #fff;
+            border: 1px solid rgba($--color-primary, .7);
+            background: rgba($--color-primary, .7);
+        }
+        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+            cursor: not-allowed;
+            opacity: .8;
+            color: #fff;
+            border: 1px solid rgba($--color-primary, .7);
+            background: rgba($--color-primary, .7);
+        }
+    }
+    &.ms-success-button{
+        color: #fff;
+        border: 1px solid rgba($--color-success, .7);
+        background: $--color-success;
+        &:hover,&:focus{
+            color: #fff;
+            border: 1px solid rgba($--color-success, .7);
+            background: rgba($--color-success, .7);
+        }
+        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+            cursor: not-allowed;
+            opacity: .8;
+            color: #fff;
+            border: 1px solid rgba($--color-success, .7);
+            background: rgba($--color-success, .7);
+        }
+    }
+    &.ms-danger-button{
+        color: #fff;
+        border: 1px solid rgba($--color-danger, .7);
+        background: $--color-danger;
+        &:hover,&:focus{
+            color: #fff;
+            border: 1px solid rgba($--color-danger, .7);
+            background: rgba($--color-danger, .7);
+        }
+        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+            cursor: not-allowed;
+            opacity: .8;
+            color: #fff;
+            border: 1px solid rgba($--color-danger, .7);
+            background: rgba($--color-danger, .7);
+        }
+    }
+
+    .ms-icon{
+        font-size: inherit;
+        vertical-align: inherit;
+        transform: scale(1.1);
+    }
+
+}
+.ms-button-group{
+    .ms-button{
+        border-radius: 0;
+        &:first-of-type{
+            border-radius: $--radius 0 0 $--radius;
+        }
+        &:last-of-type{
+            border-radius: 0 $--radius $--radius 0;
+        }
+    }
+}

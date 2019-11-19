@@ -31,29 +31,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-@import '@/style/variables.scss';
-@import '@/style/mixins.scss';
-.ms-tabbar{
-    height: $--tabbar-height;
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-    background: #fff;
-    &.is-bottom{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: $--z-index-3;
-        border-top: $--border;
-    }
-    &.is-top{
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: $--z-index-3;
-        border-bottom: $--border;
-    }
-}
-</style>

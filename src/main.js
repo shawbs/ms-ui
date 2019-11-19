@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 import MsComponents from '@/lib/components'
-import '@/lib/style/app.scss'
+import '@/lib/style/theme-entry.scss'
 
 Vue.use(MsComponents)
 

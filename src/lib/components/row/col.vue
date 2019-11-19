@@ -17,7 +17,3 @@ export default {
     inject: ['MsRow']
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

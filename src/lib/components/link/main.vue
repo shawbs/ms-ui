@@ -27,29 +27,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-@import '@/style/variables.scss';
-@import '@/style/mixins.scss';
-.ms-link{
-    color: $--color-gray;
-    &:hover,&:focus{
-        text-decoration: underline;
-    }
-    &.ms-link--primary{
-        color: $--color-primary;
-    }
-    &.ms-link--danger{
-        color: $--color-danger;
-    }
-    &.ms-link--primary{
-        color: $--color-primary;
-    }
-    &.is-disabled{
-        cursor: not-allowed;
-        opacity: .8;
-        &:hover,&:focus{
-            text-decoration: none;
-        }
-    }
-}
-</style>

@@ -46,15 +46,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/style/variables.scss';
+<style lang="scss" >
 .ms-col{
-    background-color: $--color-primary;
+    background-color: blue;
     color: white;
     margin-bottom: 10px;
     background-clip: content-box;
 }
 .ms-col:nth-child(even){
-    background-color: rgba($--color-primary, .8)
+    background-color: rgba(blue,.7)
 }
 </style>

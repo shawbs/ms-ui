@@ -1,0 +1,24 @@
+.ms-radio{
+    >label{
+        font-size: inherit;
+        cursor: pointer;
+        .ms-radio-icon{
+            font-size: 1.4em;
+            vertical-align: bottom;
+            padding: 0 $--padding-small;
+            color: $--color-gray;
+            &.ms-icon-radio-on{
+                color: $--color-primary;
+            }
+        }
+    }
+    &.ms-radio--disabled{
+        >label{
+            cursor: not-allowed;
+            color: $--color-disabled;
+            .ms-radio-icon{
+                color: $--color-disabled;
+            }
+        }
+    }
+}
