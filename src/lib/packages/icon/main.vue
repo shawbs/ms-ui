@@ -10,6 +10,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-@import './font/iconfont.css';
-</style>

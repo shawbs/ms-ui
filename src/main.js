@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import MsComponents from '@/lib/components'
-import '@/lib/style/theme-entry.scss'
+import MsComponents from '@/lib/packages'
+import '@/lib/packages/theme/src/index.scss'
 
 Vue.use(MsComponents)
 

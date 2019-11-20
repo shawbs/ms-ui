@@ -1,0 +1,29 @@
+
+.ms-toast{
+    background: rgba(0, 0, 0, .8);
+    padding: $--padding;
+    color: #ffffff;
+    border-radius: .4rem;
+    position: fixed;
+    left: 50%;
+    right: auto;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    max-width: 80%;
+    &.is-top{
+        top: 5vh;
+        bottom: auto;
+    }
+    &.is-bottom{
+        top: auto;
+        bottom: 5vh;
+    }
+    &.is-center{
+        top: 50vh;
+        bottom: auto;
+    }
+    .ms-toast-text{
+        word-break: break-all;
+        font-size: 12px;
+    }
+}

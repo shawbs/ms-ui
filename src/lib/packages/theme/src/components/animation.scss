@@ -100,6 +100,23 @@
     }
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-enter-active{
+    animation: fade-in .5s;
+}
+
+.fade-leave-active{
+    animation: fade-in .5s reverse;
+}
+
 // 放大效果
 .scale-enter-active{
     animation: scale-in .5s;

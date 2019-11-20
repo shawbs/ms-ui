@@ -1,10 +1,10 @@
 <template>
-    <div class="ms-box" v-if="show" @click.self="clickPopup('close')">
+    <ms-popup center :value="show" @click.native.self="clickPopup('close')">
         <div :class="['ms-loading']">
             <ms-icon icon="loading"></ms-icon>
             <div>{{message}}</div>
         </div>
-    </div>
+    </ms-popup>
 </template>
 
 <script>

@@ -1,11 +1,9 @@
 <template>
-    <transition name="bounce">
-        <div class="ms-box" v-if="show" @click.self="clickPopup('close')">
-            <div :class="['ms-toast',`align`]">
-                <div>{{message}}</div>
+        <transition name="fade" appear>
+            <div :class="['ms-toast',`is-${align}`]" v-if="show">
+                <div class="ms-toast-text">{{message}}</div>
             </div>
-        </div>
-    </transition>
+        </transition>
 </template>
 
 <script>

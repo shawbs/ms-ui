@@ -1,7 +1,6 @@
 <template>
     <ms-popup center :value="visiblePopup" @click.native.self="clickPopup">
         <transition name="bounce">
-            <!-- <div class="ms-box" v-if="visible" @click.self="clickPopup('close')"> -->
                 <div class="ms-message" v-if="visible" @animationend="hidePopup">
                     <div
                         class="__header"
@@ -33,7 +32,6 @@
                     </div>
 
                 </div>
-            <!-- </div> -->
         </transition>
     </ms-popup>
 </template>
