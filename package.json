@@ -7,8 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
-    "build-theme": "vue-cli-service build --target lib --name ms-ui ./src/lib/style/index.js",
-    "build-bundle": "vue-cli-service build --target lib --name ms-ui ./src/lib/components/index.js"
+    "build-theme": "vue-cli-service build --dest lib/theme --target lib --name theme ./src/lib/packages/theme/src/index.scss",
+    "build-bundle": "vue-cli-service build --dest lib --target lib --name ms-ui ./src/lib/packages/index.js"
 
   },
   "keywords": [
