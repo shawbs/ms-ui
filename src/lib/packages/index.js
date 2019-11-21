@@ -1,3 +1,5 @@
+import './directive'
+
 import Loading from './loading'
 import MsgBox from './message-box'
 import Container from './layout/container'
@@ -23,6 +25,7 @@ import RadioGroup from './radio/group'
 import Checkbox from './checkbox/main'
 import CheckboxGroup from './checkbox/group'
 import Drawer from './drawer/main'
+import SideMenu from './side-menu/main'
 
 const components = [
     Container,
@@ -46,7 +49,8 @@ const components = [
     RadioGroup,
     Checkbox,
     CheckboxGroup,
-    Drawer
+    Drawer,
+    SideMenu
 ]
 
 const install = function (Vue, opts = {}) {
@@ -95,5 +99,6 @@ export default {
     RadioGroup,
     Checkbox,
     CheckboxGroup,
-    Drawer
+    Drawer,
+    SideMenu
 }

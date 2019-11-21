@@ -42,12 +42,13 @@ $--color-text: #212121 !default;
 // other
 $--radius: 8px !default;
 $--border: 1px solid $--color-border;
-$--shadow: 0px 2px 4px 0px rgba(232,232,232,0.5);
+$--shadow: 0px 2px 4px 0px $--color-body;
 
 // button
 $--btn-height-small: 30px;
 $--btn-height: 40px;
 $--btn-height-large: 45px;
+$--btn-text-color: lighten($--color-text, 40%);
 
 // input
 $--input-height-small: 30px;

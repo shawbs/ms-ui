@@ -1,6 +1,6 @@
 {
   "name": "@shawbs/ms-ui",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "author": "shawbs",
   "description":"A mobile Vue component library",
   "scripts": {
@@ -18,10 +18,10 @@
   ],
   "license": "MIT",
   "files": [
-    "dist",
-    "lib"
+    "lib",
+    "src/lib"
   ],
-  "main": "./dist/ms-ui.common.js",
+  "main": "./lib/ms-ui.common.js",
   "dependencies": {
     "async-validator": "^3.2.0",
     "core-js": "^3.3.2",

@@ -114,6 +114,18 @@ const routes = [
         name: 'drawer',
         meta: {title: 'drawer'},
         component: () => import('@/views/com/drawer')
+    },
+    {
+        path: '/icon',
+        name: 'icon',
+        meta: {title: 'icon'},
+        component: () => import('@/views/com/icon')
+    },
+    {
+        path: '/side-menu',
+        name: 'side-menu',
+        meta: {title: 'side-menu'},
+        component: () => import('@/views/com/side-menu')
     }
 
 ]

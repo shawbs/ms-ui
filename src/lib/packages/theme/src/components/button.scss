@@ -1,3 +1,43 @@
+@mixin button($color, $textColor) {
+    color: $textColor;
+    border: 1px solid $color;
+    background: $color;
+    &:hover,&:focus{
+        color: $textColor;
+        border: 1px solid darken($color, 10%);
+        background: darken($color, 10%);
+    }
+    &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+        cursor: not-allowed;
+        opacity: .8;
+        color: $textColor;
+        border: 1px solid mix($color, white);
+        background: mix($color, white);
+    }
+}
+@mixin button-outline($color, $textColor, $hoverColor) {
+    color: darken($textColor, 10%);
+    border: 1px solid $textColor;
+    background: $color;
+    &:hover,&:focus{
+        @if $hoverColor != null {
+            color: $hoverColor;
+            border-color: $hoverColor;
+        } @else {
+            color: $color;
+            border-color: $textColor;
+            background: $textColor;
+        }
+    }
+    &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
+        cursor: not-allowed;
+        opacity: .8;
+        color: $textColor;
+        border: 1px solid $textColor;
+        background: $color;
+    }
+}
+
 .ms-button{
     display: inline-block;
     white-space: nowrap;
@@ -37,70 +77,26 @@
         width: 100%;
     }
     &.ms-default-button{
-        background: #fff;
-        border: 1px solid #dcdfe6;
-        color: #606266;
-        &:hover,&:focus{
-            color: $--color-text;
-            border: 1px solid rgba($--color-text,.7);
-        }
-        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
-            cursor: not-allowed;
-            opacity: .8;
-            background: #fff;
-            border: 1px solid #dcdfe6;
-        }
+        @include button-outline(#fff, $--btn-text-color, $--color-primary);
     }
     &.ms-primary-button{
-        color: #fff;
-        border: 1px solid rgba($--color-primary, .7);
-        background: $--color-primary;
-        &:hover,&:focus{
-            color: #fff;
-            border: 1px solid rgba($--color-primary, .7);
-            background: rgba($--color-primary, .7);
-        }
-        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
-            cursor: not-allowed;
-            opacity: .8;
-            color: #fff;
-            border: 1px solid rgba($--color-primary, .7);
-            background: rgba($--color-primary, .7);
-        }
+        @include button($--color-primary, #fff);
     }
     &.ms-success-button{
-        color: #fff;
-        border: 1px solid rgba($--color-success, .7);
-        background: $--color-success;
-        &:hover,&:focus{
-            color: #fff;
-            border: 1px solid rgba($--color-success, .7);
-            background: rgba($--color-success, .7);
-        }
-        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
-            cursor: not-allowed;
-            opacity: .8;
-            color: #fff;
-            border: 1px solid rgba($--color-success, .7);
-            background: rgba($--color-success, .7);
-        }
+        @include button($--color-success, #fff);
     }
     &.ms-danger-button{
-        color: #fff;
-        border: 1px solid rgba($--color-danger, .7);
-        background: $--color-danger;
-        &:hover,&:focus{
-            color: #fff;
-            border: 1px solid rgba($--color-danger, .7);
-            background: rgba($--color-danger, .7);
-        }
-        &.is-disabled,&.is-disabled:hover,&.is-disabled:focus{
-            cursor: not-allowed;
-            opacity: .8;
-            color: #fff;
-            border: 1px solid rgba($--color-danger, .7);
-            background: rgba($--color-danger, .7);
-        }
+        @include button($--color-danger, #fff);
+    }
+
+    &.ms-primary-button-outline{
+        @include button-outline(#fff, $--color-primary, null);
+    }
+    &.ms-success-button-outline{
+        @include button-outline( #fff, $--color-success, null);
+    }
+    &.ms-danger-button-outline{
+        @include button-outline( #fff, $--color-danger, null);
     }
 
     .ms-icon{
@@ -121,3 +117,4 @@
         }
     }
 }
+
