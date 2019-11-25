@@ -1,0 +1,14 @@
+@import "../variables";
+@import "../mixins";
+
+.ms-side-menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 40%;
+    height: 100vh;
+    z-index: $--z-index-1;
+    // transition: transform .3s ease-out;
+    background: red;
+    box-shadow: 1px 0 4px 0px $--color-body;
+}

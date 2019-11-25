@@ -1,0 +1,68 @@
+@import "../variables";
+@import "../mixins";
+
+.ms-message {
+    position: relative;
+    min-width: 280px;
+    max-width: 375px;
+    min-height: 100px;
+    max-height: 80%;
+    width: 80%;
+    background-color: #fff;
+    border-radius: $--radius;
+    overflow: hidden;
+
+    .__header{
+        padding-top: $--padding-small;
+        height: $--btn-height;
+        line-height: $--btn-height;
+        text-align: center;
+        font-size: 15px;
+        // border-bottom: $--border;
+    }
+
+    .__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 90px;
+        font-size: 15px;
+        padding: $--padding;
+        .message{
+            word-break: break-all;
+        }
+        .ms-input{
+            margin-top: $--margin-small;
+        }
+    }
+    > .close-btn {
+        position: absolute;
+        line-height: $--btn-height;
+        top: 0;
+        right: 6px;
+        font-size: 3rem;
+        color: $--color-text;
+    }
+
+    > .__footer {
+        display: flex;
+        border-top: $--border;
+        .ms-button{
+            flex: 1;
+            background: transparent;
+            border: none;
+            font-size: 15px;
+            &:hover,&:focus{
+                background: transparent;
+                border: none;
+            }
+            &:active{
+                background: $--color-border;
+            }
+            &.ms-primary-button{
+                color: $--color-primary;
+            }
+        }
+    }
+}

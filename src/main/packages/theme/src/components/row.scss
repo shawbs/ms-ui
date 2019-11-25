@@ -1,0 +1,29 @@
+@import "../variables";
+@import "../mixins";
+
+.ms-row{
+    position: relative;
+    &.ms-row--float{
+        @include clearfix();
+        .ms-col{
+            float: left;
+        }
+    }
+    &.ms-row--flex{
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        .ms-col{
+            flex: none;
+        }
+    }
+    .ms-col{
+        box-sizing: border-box;
+        min-height: 1px;
+    }
+    @each $key in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24){
+        .ms-col-#{$key}{
+            width: ($key/24) * 100%
+        }
+    }
+}

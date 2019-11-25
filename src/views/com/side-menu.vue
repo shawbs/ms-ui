@@ -5,9 +5,14 @@
         </ms-container>
         <ms-side-menu>
             <div style="width: 300px;">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+                left
+            </div>
+        </ms-side-menu>
+
+
+        <ms-side-menu position="right">
+            <div style="width: 300px;">
+                right
             </div>
         </ms-side-menu>
     </ms-page>
