@@ -9,6 +9,10 @@
     height: 100vh;
     z-index: $--z-index-1;
     // transition: transform .3s ease-out;
-    background: red;
-    box-shadow: 1px 0 4px 0px $--color-body;
+    .ms-side-menu-content{
+        height: 100%;
+        width: 100%;
+        background: red;
+        box-shadow: 1px 0 4px 0px $--color-body;
+    }
 }

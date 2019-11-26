@@ -10,11 +10,11 @@
         </ms-side-menu>
 
 
-        <ms-side-menu position="right">
+        <!-- <ms-side-menu position="right">
             <div style="width: 300px;">
                 right
             </div>
-        </ms-side-menu>
+        </ms-side-menu> -->
     </ms-page>
 </template>
 
