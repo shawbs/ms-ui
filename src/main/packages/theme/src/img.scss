@@ -1,0 +1,48 @@
+@import "./variables";
+@import "./mixins";
+
+.ms-img{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    .ms-img-inner{
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+    }
+    .ms-img-tip{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $--color-body;
+        color: $--color-gray;
+        @extend %flexcenter;
+    }
+    &.fill{
+        img{
+            object-fit: fill
+        }
+    }
+    &.contain{
+        img{
+            object-fit: contain
+        }
+    }
+    &.cover{
+        img{
+            object-fit: cover
+        }
+    }
+    &.none{
+        img{
+            object-fit: none
+        }
+    }
+    &.scale-down{
+        img{
+            object-fit: scale-down
+        }
+    }
+}

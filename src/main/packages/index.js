@@ -1,37 +1,30 @@
-import './directive'
+
 import Lacale from '../locale'
-import Loading from './loading'
-import MsgBox from './message-box'
-import Container from './layout/container'
-import Footer from './layout/footer'
-import Header from './layout/header'
-import MsPage from './layout/page'
-import Link from './link/main'
-import Button from './button/main'
-import ButtonGroup from './button-group/main'
-import Input from './input/main'
-import Form from './form/main'
-import FormItem from './form-item/main'
-import Tabbar from './tabbar/tabbar'
-import TabbarItem from './tabbar/tabbar-item'
-import Popup from './popup/main'
-import Toast from './toast'
-import Icon from './icon/main'
-import Img from './img/main'
-import Row from './row/main'
-import Col from './row/col'
-import Radio from './radio/main'
-import RadioGroup from './radio/group'
-import Checkbox from './checkbox/main'
-import CheckboxGroup from './checkbox/group'
-import Drawer from './drawer/main'
-import SideMenu from './side-menu/main'
+import Loading from './loading/index.js'
+import MsgBox from './message-box/index.js'
+import Layout from './layout/container/index.js'
+import Link from './link/index.js'
+import Button from './button/index.js'
+import ButtonGroup from './button-group/index.js'
+import Input from './input/index.js'
+import Form from './form/index.js'
+import FormItem from './form-item/index.js'
+import Tabbar from './tabbar/index.js'
+import TabbarItem from './tabbar-item/index.js'
+import Popup from './popup/index.js'
+import Toast from './toast/index.js'
+import Icon from './icon/index.js'
+import Img from './img/index.js'
+import Row from './row/index.js'
+import Col from './col/index.js'
+import Radio from './radio/index.js'
+import RadioGroup from './radio-group/index.js'
+import Checkbox from './checkbox/index.js'
+import CheckboxGroup from './checkbox-group/index.js'
+import Drawer from './drawer/index.js'
+import SideMenu from './side-menu/index.js'
 
 const components = [
-    Container,
-    Footer,
-    Header,
-    MsPage,
     Link,
     Button,
     Input,
@@ -55,6 +48,7 @@ const components = [
 
 const install = function (Vue, opts = {}) {
     Lacale.use(opts.locale)
+    Vue.use(Layout)
 
     components.forEach(component => {
         Vue.component(component.name, component)
@@ -81,10 +75,7 @@ export default {
     install,
     Loading,
     MsgBox,
-    Container,
-    MsPage,
-    Footer,
-    Header,
+    Toast,
     Button,
     Input,
     Form,
