@@ -20,6 +20,7 @@ const defaultOption = {
     callback: action => {
         console.log(action)
     },
+
     beforeClose: null
 }
 

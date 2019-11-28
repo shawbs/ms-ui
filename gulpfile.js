@@ -42,7 +42,7 @@ function i18n(){
 function clean(cb){
     del.sync([
         './lib/theme',
-        themePath + '/lib'
+        './lib/locale'
     ])
     cb()
 }

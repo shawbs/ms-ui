@@ -14,6 +14,7 @@
 
 <script>
 import {on, off, throttle} from '../../utils/index'
+import {appendToBody} from '../../directive'
 export default {
     name: 'MsSideMenu',
     props: {
@@ -22,6 +23,7 @@ export default {
             default: 'left'
         }
     },
+    directives: {appendToBody},
     data(){
         return {
             left: 0,

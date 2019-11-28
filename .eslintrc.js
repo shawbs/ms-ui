@@ -8,7 +8,7 @@ module.exports = {
         '@vue/standard'
     ],
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
+        'no-console': 0,
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
         "no-alert": 0,//禁止使用alert confirm prompt
         "no-array-constructor": 2,//禁止使用数组构造器

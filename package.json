@@ -1,15 +1,17 @@
 {
   "name": "@shawbs/ms-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "shawbs",
   "description": "A mobile Vue component library",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
-    "build-bundle": "vue-cli-service build --dest lib --target lib --name ms-ui ./src/main/packages/index.js",
+    "build-bundle": "vue-cli-service build --dest lib --target lib --name ms-ui ./src/main/index.js",
+    "build-component": "webpack --config webpack.component.js",
     "build-theme": "gulp clean && gulp build && gulp copy",
-    "i18n": "gulp i18n"
+    "i18n": "gulp i18n",
+    "deploy": "npm run build-bundle && npm run build-component && npm run build-theme && npm run i18n"
   },
   "keywords": [
     "ms",
@@ -38,12 +40,15 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.10",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cssmin": "^0.2.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "sass-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }

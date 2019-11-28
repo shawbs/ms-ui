@@ -1,6 +1,6 @@
 <template>
         <transition name="fade" appear>
-            <div :class="['ms-toast',`is-${align}`]" v-if="show">
+            <div :class="['ms-toast',`is-${align}`]" v-if="visible">
                 <div class="ms-toast-text">{{message}}</div>
             </div>
         </transition>
@@ -11,37 +11,32 @@ export default {
     name: 'MsToast',
     data () {
         return {
-            show: false,
+            visible: false,
             message: '',
             time: 3000,
             timer: null,
-            isClickOtherClose: true, // 是否点击蒙层关闭toast
             align: 'center'
         }
     },
     watch: {
-        show (val) {
+        visible (val) {
             this.$nextTick(() => {
                 this.autoClose()
             })
         }
     },
     methods: {
-        clickPopup (action) {
-            if (this.isClickOtherClose) this.handleAction(action)
+        close () {
+            this.visible = false
         },
-        handleAction (action) {
-            this.action = action
-            this.doClose()
-        },
-        doClose () {
-            this.show = false
-            this.callback && this.callback(this.action, this)
+        show(){
+            this.visible = true
         },
         autoClose () {
             if (this.time > 0) {
+                this.timer && clearTimeout(this.timer)
                 this.timer = setTimeout(() => {
-                    this.doClose()
+                    this.close()
                     clearTimeout(this.timer)
                 }, this.time)
             }

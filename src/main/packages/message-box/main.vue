@@ -57,10 +57,7 @@ export default {
             inputType: 'text',
             inputValue: '',
             placeholder: this.t('ms.messagebox.placeholder'),
-            isClickOtherClose: true,
-
-            callback: null,
-            beforeClose: null
+            isClickOtherClose: true
         }
     },
     methods: {
