@@ -1,6 +1,6 @@
 {
   "name": "@shawbs/ms-ui",
-  "version": "0.1.21",
+  "version": "0.1.23",
   "author": "shawbs",
   "description": "A mobile Vue component library",
   "scripts": {
@@ -22,9 +22,8 @@
     "lib",
     "src/main"
   ],
-  "main": "lib/dist/ms-ui.common.js",
+  "main": "lib/index.js",
   "style": "lib/theme/index.css",
-  "unpkg": "lib/dist/ms-ui.umd.js",
   "dependencies": {
     "async-validator": "^3.2.0",
     "core-js": "^3.3.2",
