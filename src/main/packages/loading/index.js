@@ -38,4 +38,8 @@ Loading.hide = function(){
     if (instance) instance.show = false
 }
 
+Loading.install = function(v){
+    v.prototype.$loading = Loading
+}
+
 export default Loading

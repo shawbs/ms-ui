@@ -78,4 +78,11 @@ Plugin.prompt = function(message, opt = {}) {
     instance.show()
 }
 
+Plugin.install = function(v){
+    v.prototype.$msgbox = Plugin
+    v.prototype.$alert = Plugin.alert
+    v.prototype.$confirm = Plugin.confirm
+    v.prototype.$prompt = Plugin.prompt
+}
+
 export default Plugin

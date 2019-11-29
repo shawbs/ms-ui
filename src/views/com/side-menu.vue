@@ -4,14 +4,14 @@
             <p v-for="item in 50" :key="'a'+ item">{{item}}</p>
         </ms-container>
         <ms-side-menu>
-            <div style="width: 300px;">
+            <div>
                 left
             </div>
         </ms-side-menu>
 
 
         <!-- <ms-side-menu position="right">
-            <div style="width: 300px;">
+            <div>
                 right
             </div>
         </ms-side-menu> -->

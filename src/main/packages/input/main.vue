@@ -94,7 +94,7 @@ export default {
 
     computed: {
         inputSize(){
-            return this.size || this.$MS_OPTION.size || 'medium'
+            return this.size || (this.$MS_OPTION || {}).size || 'medium'
         },
         myValue(){
             return this.value === null || this.value === undefined ? '' : String(this.value);

@@ -37,4 +37,8 @@ ToastBox.show = function(message="",opt){
     })
 }
 
+ToastBox.install = function(v){
+    v.prototype.$toast = ToastBox.show
+}
+
 export default ToastBox

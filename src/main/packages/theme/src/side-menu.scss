@@ -5,14 +5,23 @@
     position: fixed;
     left: 0;
     top: 0;
-    min-width: 40%;
     height: 100vh;
+    min-width: 10px;
+    width: 60%;
     z-index: $--z-index-1;
-    // transition: transform .3s ease-out;
+    opacity: 0;
     .ms-side-menu-content{
         height: 100%;
         width: 100%;
-        background: red;
-        box-shadow: 1px 0 4px 0px $--color-body;
+        background: $--color-dark;
+        color: #ffffff;
+    }
+    &.is-left{
+        left: auto;
+        right: 0;
+    }
+    &.is-right{
+        left: auto;
+        right: 0;
     }
 }

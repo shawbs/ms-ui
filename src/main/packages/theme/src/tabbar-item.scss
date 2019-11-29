@@ -1,0 +1,50 @@
+@import "./variables";
+@import "./mixins";
+
+.ms-tab-item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $--color-text;
+    cursor: pointer;
+    &.ms-tab-item--active{
+      color: $--color-primary;
+    }
+    .ms-tab-item-box{
+        position: relative;
+        text-align: center;
+    }
+    .ms-tab-item-bage{
+        position: absolute;
+        top: -4px;
+        left: 90%;
+        font-size: 12px;
+        min-width: 20px;
+        max-width: 30px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        background: $--color-danger;
+        color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 1;
+        >span{
+            display: inline-block;
+            transform: scale(.8);
+        }
+    }
+    .ms-tab-item-dot{
+        position: absolute;
+        top: 0;
+        left: 90%;
+        font-size: 0;
+        width: 10px;
+        height: 10px;
+        text-align: center;
+        background: $--color-danger;
+        border-radius: 50%;
+    }
+}

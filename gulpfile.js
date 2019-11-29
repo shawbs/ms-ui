@@ -35,8 +35,8 @@ function copy(cb){
 }
 
 function i18n(){
-    return src(mainPath + '/locale/lang/**')
-        .pipe(dest('./lib/locale/lang'))
+    return src(mainPath + '/locale/**/**')
+        .pipe(dest('./lib/locale/'))
 }
 
 function clean(cb){

@@ -32,7 +32,7 @@ export default {
     },
     computed: {
         buttonSize(){
-            return this.size || this.$MS_OPTION.size || 'medium'
+            return this.size || (this.$MS_OPTION || {}).size || 'medium'
         },
         themeBtn(){
             return `ms-${this.type}-button` + (this.outline ? '-outline' : '')

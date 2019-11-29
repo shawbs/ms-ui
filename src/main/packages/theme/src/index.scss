@@ -1,22 +1,27 @@
 
-@import "./reboot.scss";
+@import "./base";
 
 // import component style
-@import "./animation";
 @import "./button";
+@import "./button-group";
 @import "./checkbox";
+@import "./checkbox-group";
 @import "./drawer";
 @import "./form";
+@import "./form-item";
 @import "./icon";
 @import "./img";
 @import "./input";
 @import "./layout";
 @import "./link";
 @import "./loading";
-@import "./msgbox";
+@import "./message-box";
 @import "./popup";
 @import "./radio";
+@import "./radio-group";
 @import "./row";
+@import "./col";
 @import "./tabbar";
+@import "./tabbar-item";
 @import "./toast";
 @import "./side-menu";

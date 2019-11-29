@@ -1,5 +1,5 @@
 <template>
-    <ms-popup center :value="visiblePopup" @click.native.self="clickPopup">
+    <ms-popup center v-model="visiblePopup" @click.native.self="clickPopup">
         <transition name="bounce">
                 <div class="ms-message" v-if="visible" @animationend="hidePopup">
                     <div
@@ -38,9 +38,13 @@
 
 <script>
 import Locale from '../../mixins/locale'
+import MsPopup from '../popup/main'
+import MsButton from '../button/main'
+import MsInput from '../input/main'
 export default {
     name: 'MsMessageBox',
     mixins: [Locale],
+    components: {MsPopup, MsInput, MsButton},
     data () {
         console.log(this.t('ms.messagebox.cancel'))
         return {

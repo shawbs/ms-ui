@@ -1,5 +1,5 @@
 <template>
-    <ms-popup center :value="show" @click.native.self="clickPopup('close')">
+    <ms-popup center v-model="show" @click="clickPopup('close')">
         <div :class="['ms-loading']">
             <ms-icon icon="loading"></ms-icon>
             <div>{{message}}</div>
@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import MsPopup from '../popup/main'
+import MsIcon from '../icon/main'
 export default {
     name: 'MsToast',
+    components: {MsPopup,MsIcon},
     data () {
         return {
             show: false,

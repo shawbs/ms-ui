@@ -2,11 +2,11 @@
     <div class="ms-side-menu"
     v-append-to-body
     ref="sideMenu"
-    :style="translate"
-    @transitionend="doAn = false"
+    :style="style"
     :class="[
+    `is-${position}`
     ]">
-        <div class="ms-side-menu-content">
+        <div class="ms-side-menu-content" >
             <slot />
         </div>
     </div>
@@ -28,21 +28,21 @@ export default {
         return {
             left: 0,
             slide: null,
-            ready: false,
             drawing: false,
             doAn: false,
 
             clientX: -1, // 当前鼠标x坐标
-            direction: '' //当前滑动方向
+            direction: '', //当前滑动方向
 
+            style: null
         }
     },
     computed: {
-        width(){
+        offsetWidth(){
             return this.$refs.sideMenu.offsetWidth
         },
         translate(){
-            return `opacity:${Number(this.ready)};transform: translate3D(${this.left}px, 0, 0);transition: ${this.doAn ? 'transform .5s ease .2s' : 'none 0s ease 0s'};`
+            return `position:fixed;top:0;left:0;width:100%;height:100%;transform: translate3D(${this.left}px, 0, 0);transition: ${this.doAn ? 'transform 1s ease .2s' : 'none 0s ease 0s'};`
         }
     },
     watch: {
@@ -55,82 +55,89 @@ export default {
                     this.direction = 'rtl'
                 }
             }
+        },
+        translate(val){
+            console.log(val)
+            document.body.style = val
         }
     },
     mounted(){
-        if (this.position === 'left'){
-            this.left = - this.width
-        }
-        if (this.position === 'right'){
-            this.left = document.body.scrollWidth
-        }
+        this.init()
 
         this.slide = this.slideFunc(document.body)
-        setTimeout(() => {
-            this.ready = true
-        }, 1000);
+
     },
     beforeDestroy(){
         this.slide.destroy()
     },
     methods: {
 
+        init(){
+            this.style = {
+                left: this.position === 'left' ? -this.offsetWidth + 'px' : 'auto',
+                right: this.position === 'right' ? -this.offsetWidth + 'px' : 'auto',
+                opacity: 1
+            }
+        },
+
         slideFunc(container){
             let startX, moveX;
             let self = this
-            let speed = 5 //滑动速度
-            let margin = 10 //超出距离
+            let speed = 10 //滑动速度
+            let margin = 0 //超出距离
+            let space = 20 // 水平移动距离超出则会滑动
 
             const startFn = function(e) {
                 self.clientX = startX = e.touches[0].clientX
                 self.drawing = true
+                self.doAn = false
             }
 
             const moveFn = function(e) {
                 self.clientX = moveX = e.touches[0].clientX
                 // 如果水平移动小于50，则不滑动
-                if (Math.abs(moveX - startX) < 50) return
+                if (Math.abs(moveX - startX) < space) return
 
                 if (self.direction === 'ltr'){
                     if (self.position === 'left'){
-                        let end = 0
-                        self.left = self.left >= end + margin ? end + margin : self.left + speed
+                        let end = self.offsetWidth
+                        if (self.left !== end){
+                            self.left = self.left >= end + margin ? end : self.left + speed
+                        }
                     }
                     if (self.position === 'right'){
-                        let end = document.body.scrollWidth
-                        self.left = self.left >= end + margin ? end : self.left + speed
+                        let end = 0
+                        if (self.left !== end){
+                            self.left = self.left > end + margin ? end : self.left + speed
+                        }
                     }
                 }
                 if (self.direction === 'rtl'){
                     if (self.position === 'left'){
-                        let end = - self.width
-                        self.left = self.left <= end - margin ? end - margin : self.left - speed
+                        let end = 0
+                        if (self.left !== end) {
+                            self.left = self.left <= end - margin ? end : self.left - speed
+                        }
                     }
                     if (self.position === 'right'){
-                        let end = document.body.scrollWidth - self.width
-                        self.left = self.left <= end - margin ? end - margin : self.left - speed
+                        let end = - self.offsetWidth
+                        if (self.left !== end){
+                            self.left = self.left <= end - margin ? end : self.left - speed
+                        }
                     }
                 }
             }
 
             const endFn = function(e) {
                 self.doAn = true
-                if (self.direction === 'ltr'){
-                    if (self.position === 'left'){
-                        self.left = Math.abs(self.left) <= self.width/2 ? 0 : -self.width
-                    }
-                    if (self.position === 'right'){
-                        self.left = document.body.scrollWidth-self.left <= self.width/2 ? document.body.scrollWidth : document.body.scrollWidth - self.width
-                    }
+
+                if (self.position === 'left'){
+                    self.left = self.left <= self.offsetWidth/2 ? 0 : self.offsetWidth
                 }
-                if (self.direction === 'rtl'){
-                    if (self.position === 'left'){
-                        self.left = Math.abs(self.left) >= self.width/2 ? -self.width : 0
-                    }
-                    if (self.position === 'right'){
-                        self.left = document.body.scrollWidth-self.left >= self.width/2 ? document.body.scrollWidth - self.width : document.body.scrollWidth
-                    }
+                if (self.position === 'right'){
+                    self.left = Math.abs(self.left) >= self.offsetWidth/2 ? - self.offsetWidth : 0
                 }
+
                 self.direction = ''
                 self.clientX = -1
                 self.drawing = false

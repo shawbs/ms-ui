@@ -41,7 +41,7 @@ export default {
             return this.form.labelWidth ? this.form.labelWidth : 'auto'
         },
         size(){
-            return this.$MS_OPTION.size || 'medium'
+            return (this.$MS_OPTION || {}).size || 'medium'
         }
     },
     methods: {
