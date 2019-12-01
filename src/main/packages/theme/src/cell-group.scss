@@ -1,0 +1,13 @@
+@import "./comom/variables";
+@import "./comom/mixins";
+
+.ms-cell-group{
+    .ms-cell-title{
+        display: flex;
+        justify-content: space-between;
+        padding: $--padding $--padding-small;
+        color: $--color-text;
+        font-size: 1.5rem;
+        position: relative;
+    }
+}

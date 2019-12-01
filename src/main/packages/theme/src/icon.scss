@@ -1,5 +1,14 @@
 @import "./comom/variables";
 @import "./comom/mixins";
+.ms-icon{
+  display: inline-block;
+  font-size: 1.5em;
+  vertical-align: baseline;
+  line-height: 1;
+}
+.ms-icon-loading{
+  animation: rotating 1.5s infinite linear;
+}
 
 @font-face {font-family: "ms-icon";
     src: url('#{$--font-path}/iconfont.eot?t=1574315131553'); /* IE9 */
@@ -18,145 +27,138 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  .ms-icon-check:before {
-    content: "\e615";
-  }
-  
-  .ms-icon-mobile:before {
-    content: "\e611";
-  }
-  
-  .ms-icon-qq:before {
-    content: "\e601";
-  }
-  
-  .ms-icon-cc-arrow-down:before {
-    content: "\e608";
-  }
-  
-  .ms-icon-cc-arrow-left:before {
-    content: "\e609";
-  }
-  
-  .ms-icon-cc-arrow-right:before {
-    content: "\e60c";
-  }
-  
-  .ms-icon-cc-arrow-up:before {
-    content: "\e60f";
-  }
-  
-  .ms-icon-tip-o:before {
-    content: "\e72b";
-  }
-  
-  .ms-icon-loading:before {
-    content: "\e6ab";
-  }
-  
-  .ms-icon-warn:before {
-    content: "\e610";
-  }
-  
-  .ms-icon-radio1:before {
-    content: "\e75e";
-  }
-  
-  .ms-icon-radio1-on:before {
-    content: "\e75f";
-  }
-  
-  .ms-icon-checkbox:before {
-    content: "\e63b";
-  }
-  
-  .ms-icon-checkbox-on:before {
-    content: "\e63d";
-  }
-  
-  .ms-icon-eye:before {
-    content: "\e60d";
-  }
-  
-  .ms-icon-radio-on:before {
-    content: "\e653";
-  }
-  
-  .ms-icon-arrow-up:before {
-    content: "\e602";
-  }
-  
-  .ms-icon-arrow-down:before {
-    content: "\e60a";
-  }
-  
-  .ms-icon-emoji:before {
-    content: "\e61e";
-  }
-  
-  .ms-icon-arrow-right:before {
-    content: "\e694";
-  }
-  
-  .ms-icon-tip:before {
-    content: "\e61a";
-  }
-  
-  .ms-icon-arrow-left:before {
-    content: "\e6fd";
-  }
-  
-  .ms-icon-chat:before {
-    content: "\e658";
-  }
-  
-  .ms-icon-radio:before {
-    content: "\e7c9";
-  }
-  
-  .ms-icon-help:before {
-    content: "\e612";
-  }
-  
-  .ms-icon-close-circle:before {
-    content: "\e684";
-  }
-  
-  .ms-icon-close:before {
-    content: "\e685";
-  }
-  
-  .ms-icon-search:before {
-    content: "\e69c";
-  }
-  
-  .ms-icon-checkbox-o:before {
-    content: "\ec58";
-  }
-  
-  .ms-icon-user:before {
-    content: "\e755";
-  }
-  
-  .ms-icon-home:before {
-    content: "\e607";
-  }
-  
-  .ms-icon-inform:before {
-    content: "\e613";
-  }
-  
-  .ms-icon-password:before {
-    content: "\e606";
-  }
-  
-  
-.ms-icon{
-    display: inline-block;
-    font-size: 1.5em;
-    vertical-align: baseline;
-    line-height: 1;
+.ms-icon-check:before {
+  content: "\e615";
 }
-.ms-icon-loading{
-    animation: rotating 1.5s infinite linear;
+
+.ms-icon-mobile:before {
+  content: "\e611";
+}
+
+.ms-icon-qq:before {
+  content: "\e601";
+}
+
+.ms-icon-cc-arrow-down:before {
+  content: "\e608";
+}
+
+.ms-icon-cc-arrow-left:before {
+  content: "\e609";
+}
+
+.ms-icon-cc-arrow-right:before {
+  content: "\e60c";
+}
+
+.ms-icon-cc-arrow-up:before {
+  content: "\e60f";
+}
+
+.ms-icon-github:before {
+  content: "\e709";
+}
+
+.ms-icon-tip-o:before {
+  content: "\e72b";
+}
+
+.ms-icon-loading:before {
+  content: "\e6ab";
+}
+
+.ms-icon-warn:before {
+  content: "\e610";
+}
+
+.ms-icon-radio1:before {
+  content: "\e75e";
+}
+
+.ms-icon-radio1-on:before {
+  content: "\e75f";
+}
+
+.ms-icon-checkbox:before {
+  content: "\e63b";
+}
+
+.ms-icon-checkbox-on:before {
+  content: "\e63d";
+}
+
+.ms-icon-eye:before {
+  content: "\e60d";
+}
+
+.ms-icon-radio-on:before {
+  content: "\e653";
+}
+
+.ms-icon-arrow-up:before {
+  content: "\e602";
+}
+
+.ms-icon-arrow-down:before {
+  content: "\e60a";
+}
+
+.ms-icon-emoji:before {
+  content: "\e61e";
+}
+
+.ms-icon-arrow-right:before {
+  content: "\e694";
+}
+
+.ms-icon-tip:before {
+  content: "\e61a";
+}
+
+.ms-icon-arrow-left:before {
+  content: "\e6fd";
+}
+
+.ms-icon-chat:before {
+  content: "\e658";
+}
+
+.ms-icon-radio:before {
+  content: "\e7c9";
+}
+
+.ms-icon-help:before {
+  content: "\e612";
+}
+
+.ms-icon-close-circle:before {
+  content: "\e684";
+}
+
+.ms-icon-close:before {
+  content: "\e685";
+}
+
+.ms-icon-search:before {
+  content: "\e69c";
+}
+
+.ms-icon-checkbox-o:before {
+  content: "\ec58";
+}
+
+.ms-icon-user:before {
+  content: "\e755";
+}
+
+.ms-icon-home:before {
+  content: "\e607";
+}
+
+.ms-icon-inform:before {
+  content: "\e613";
+}
+
+.ms-icon-password:before {
+  content: "\e606";
 }

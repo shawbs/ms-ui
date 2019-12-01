@@ -8,32 +8,15 @@
     }
 }
 
-@keyframes up-out {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(0, -100%);
-    }
-}
-
 @keyframes down-in {
     0% {
-        transform: translate(0, -100%);
+        transform: translate(0, 100%);
     }
     100% {
         transform: translate(0, 0);
     }
 }
 
-@keyframes down-out {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(0, 25%);
-    }
-}
 
 @keyframes left-in {
     0% {

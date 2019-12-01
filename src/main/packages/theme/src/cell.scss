@@ -1,0 +1,43 @@
+@import "./comom/variables";
+@import "./comom/mixins";
+
+.ms-cell{
+    display: flex;
+    justify-content: space-between;
+    height: $--cell-height;
+    line-height: $--cell-height;
+    padding: 0 $--padding-small;
+    background: #ffffff;
+    color: $--color-text;
+    font-size: 1.5rem;
+    position: relative;
+    &:last-of-type{
+        &::after{
+            content: none;
+        }
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: $--padding-small;
+        right: 0;
+        border-top: $--border;
+    }
+    .ms-cell-label{
+        margin-right: $--padding-small;
+    }
+    .ms-cell-content{
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    .ms-cell-suffix{
+        flex: none;
+        display: flex;
+        align-items: center;
+    }
+    .ms-input-box .ms-input-control .ms-input__inner{
+        border: none;
+    }
+}

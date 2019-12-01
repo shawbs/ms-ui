@@ -24,6 +24,10 @@ import Checkbox from './packages/checkbox/index.js'
 import CheckboxGroup from './packages/checkbox-group/index.js'
 import Drawer from './packages/drawer/index.js'
 import SideMenu from './packages/side-menu/index.js'
+import Grid from './packages/grid/index.js'
+import GridItem from './packages/grid-item/index.js'
+import Cell from './packages/cell/index.js'
+import CellGroup from './packages/cell-group/index.js'
 
 const components = [
     Link,
@@ -44,7 +48,11 @@ const components = [
     Checkbox,
     CheckboxGroup,
     Drawer,
-    SideMenu
+    SideMenu,
+    Grid,
+    GridItem,
+    Cell,
+    CellGroup
 ]
 
 const install = function (Vue, opts = {}) {
@@ -94,5 +102,9 @@ export default {
     Checkbox,
     CheckboxGroup,
     Drawer,
-    SideMenu
+    SideMenu,
+    Grid,
+    GridItem,
+    Cell,
+    CellGroup
 }

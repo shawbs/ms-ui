@@ -19,9 +19,9 @@ const routes = [
                 component: () => import('@/views/tab/home')
             },
             {
-                path: 'mine',
-                name: 'mine',
-                component: () => import('@/views/tab/mine')
+                path: 'about',
+                name: 'about',
+                component: () => import('@/views/tab/about')
             }
         ]
     },
@@ -126,6 +126,12 @@ const routes = [
         name: 'side-menu',
         meta: {title: 'side-menu'},
         component: () => import('@/views/com/side-menu')
+    },
+    {
+        path: '/cell',
+        name: 'cell',
+        meta: {title: 'cell'},
+        component: () => import('@/views/com/cell')
     }
 
 ]

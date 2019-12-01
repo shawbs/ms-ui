@@ -5,16 +5,38 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
     background: #ffffff;
-    min-width: 50%;
     &.is-rtl{
         left: auto;
         right: 0;
+        top: 0;
+        min-width: 100px;
+        height: 100%;
+        bottom: auto;
     }
     &.is-ltr{
         left: 0;
+        top: 0;
         right: auto;
+        bottom: auto;
+        min-width: 100px;
+        height: 100%;
+    }
+    &.is-ttb{
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        min-height: 100px;
+    }
+    &.is-btt{
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        min-height: 100px;
     }
 }
 
@@ -36,4 +58,24 @@
 .rtl-leave-active {
     z-index: 1;
     animation: right-out .5s;
+}
+
+/*上入动画*/
+.ttb-enter-active {
+    animation: up-in .5s;
+}
+
+.ttb-leave-active {
+    z-index: 1;
+    animation: up-in .5s reverse;
+}
+
+/*下入动画*/
+.btt-enter-active {
+    animation: down-in .5s;
+}
+
+.btt-leave-active {
+    z-index: 1;
+    animation: down-in .5s reverse;
 }
