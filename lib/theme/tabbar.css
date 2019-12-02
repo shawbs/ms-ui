@@ -1,0 +1,1 @@
+.ms-tabbar{height:60px;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;background:#fff}.ms-tabbar.is-bottom{position:fixed;bottom:0;left:0;z-index:300;border-top:1px solid #ebedf0}.ms-tabbar.is-top{position:fixed;top:0;left:0;z-index:300;border-bottom:1px solid #ebedf0}
