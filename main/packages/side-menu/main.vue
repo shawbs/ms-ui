@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {on, off, throttle} from '../../utils/index'
+import {on, off} from '../../utils/index'
 import {appendToBody} from '../../directive'
 export default {
     name: 'MsSideMenu',
@@ -42,7 +42,7 @@ export default {
             return this.$refs.sideMenu.offsetWidth
         },
         translate(){
-            return `position:fixed;top:0;left:0;width:100%;height:100%;transform: translate3D(${this.left}px, 0, 0);transition: ${this.doAn ? 'transform 1s ease .2s' : 'none 0s ease 0s'};`
+            return `position:fixed;top:0;left:0;width:100%;height:100%;transform: translate3D(${this.left}px, 0, 0);transition: ${this.doAn ? 'transform .6s ease' : 'none 0s ease'};`
         }
     },
     watch: {
@@ -57,8 +57,13 @@ export default {
             }
         },
         translate(val){
-            console.log(val)
+            // console.log(val)
             document.body.style = val
+        },
+        position(val){
+            if (val){
+                this.init()
+            }
         }
     },
     mounted(){
@@ -73,6 +78,7 @@ export default {
     methods: {
 
         init(){
+            console.log('init')
             this.style = {
                 left: this.position === 'left' ? -this.offsetWidth + 'px' : 'auto',
                 right: this.position === 'right' ? -this.offsetWidth + 'px' : 'auto',
@@ -81,22 +87,29 @@ export default {
         },
 
         slideFunc(container){
-            let startX, moveX;
+            let startX, startY,moveX;
             let self = this
-            let speed = 10 //滑动速度
-            let margin = 0 //超出距离
-            let space = 20 // 水平移动距离超出则会滑动
-
+            let speed = 3 //滑动速度
+            let margin = 10 //超出距离
+            let space = 5 // 垂直距离超出这个值则不会滑动
+            let disabled = false
             const startFn = function(e) {
+                startY = e.touches[0].clientY
                 self.clientX = startX = e.touches[0].clientX
                 self.drawing = true
                 self.doAn = false
+                disabled = true
             }
 
             const moveFn = function(e) {
                 self.clientX = moveX = e.touches[0].clientX
-                // 如果水平移动小于50，则不滑动
-                if (Math.abs(moveX - startX) < space) return
+                let spaceY = e.touches[0].clientY - startY
+
+                if (Math.abs(spaceY) < space) {
+                    disabled = false
+                }
+
+                if (disabled) return
 
                 if (self.direction === 'ltr'){
                     if (self.position === 'left'){

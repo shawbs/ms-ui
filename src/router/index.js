@@ -132,6 +132,18 @@ const routes = [
         name: 'cell',
         meta: {title: 'cell'},
         component: () => import('@/views/com/cell')
+    },
+    {
+        path: '/switch',
+        name: 'switch',
+        meta: {title: 'switch'},
+        component: () => import('@/views/com/switch')
+    },
+    {
+        path: '/pull-refresh',
+        name: 'pull-refresh',
+        meta: {title: 'pull-refresh'},
+        component: () => import('@/views/com/pull-refresh')
     }
 
 ]

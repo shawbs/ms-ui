@@ -16,7 +16,7 @@ export default {
 .app{
   font-size: 1.4rem;
   .ms-container{
-      padding: 0 10px;
+      background: #f2f2f2;
   }
   .ms-button{
       margin-bottom: 10px;

@@ -1,0 +1,20 @@
+@import "./comom/variables";
+@import "./comom/mixins";
+
+.ms-pull-refresh{
+    height: 100%;
+    overflow: hidden;
+    .ms-pull-refresh-content{
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        .ms-pull-refresh-head{
+            padding: $--padding;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // flex-direction: column;
+        }
+    }
+}

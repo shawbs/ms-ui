@@ -1,5 +1,5 @@
 <template>
-    <div class="ms-popup" :class="{'is-center':center}" v-if="value" @click="clickHandle">
+    <div class="ms-popup" :class="{'is-center':center}" v-if="value" @click="clickHandle" :style="{background: background}">
         <slot />
     </div>
 </template>
@@ -10,6 +10,7 @@ export default {
     props: {
         value: Boolean,
         center: Boolean,
+        background: String,
         isClickOtherClose: Boolean
     },
     methods: {

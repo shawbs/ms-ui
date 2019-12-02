@@ -17,10 +17,3 @@ export default {
 
 }
 </script>
-
-<style lang="scss" scoped>
-.ms-container{
-    background: #f3f3f3;
-    padding: 0;
-}
-</style>

@@ -88,6 +88,14 @@ export default {
                 {
                     url: '/cell',
                     label: 'cell'
+                },
+                {
+                    url: '/switch',
+                    label: 'switch'
+                },
+                {
+                    url: '/pull-refresh',
+                    label: 'pull-refresh'
                 }
             ]
         }
@@ -95,8 +103,3 @@ export default {
 
 }
 </script>
-<style lang="scss" scoped>
-    .ms-container{
-        background: #f3f3f3;
-    }
-</style>

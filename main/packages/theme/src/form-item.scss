@@ -9,6 +9,9 @@
             content: '*';
             color: $--color-danger;
             margin: 0 5px;
+            position: absolute;
+            top: auto;
+            left: auto;
         }
     }
     .ms-form-item-label{
@@ -18,17 +21,17 @@
         padding: 0 $--padding;
     }
     &.ms-form-item-small{
-        .ms-form-item-label{
+        .ms-form-item-label,.ms-form-item-content{
             line-height: $--input-height-small;
         }
     }
     &.ms-form-item-medium{
-        .ms-form-item-label{
+        .ms-form-item-label,.ms-form-item-content{
             line-height: $--input-height;
         }
     }
     &.ms-form-item-large{
-        .ms-form-item-label{
+        .ms-form-item-label,.ms-form-item-content{
             line-height: $--input-height-large;
         }
     }
@@ -39,6 +42,7 @@
             position: absolute;
             top: 100%;
             left: 5px;
+            line-height: 1.3;
             color: $--color-danger;
         }
     }

@@ -1,0 +1,48 @@
+@import "./comom/variables";
+@import "./comom/mixins";
+
+.ms-switch{
+    display: inline-block;
+    &.off{
+        .ms-switch-bar{
+            background: $--color-gray;
+            border-color: $--color-gray;
+            .ms-switch-node{
+                transform: translateX(0);
+            }
+        }
+    }
+    &.on{
+        .ms-switch-bar{
+            background: $--color-primary;
+            border-color: $--color-primary;
+            .ms-switch-node{
+                transform: translateX(1em);
+            }
+        }
+    }
+    .ms-switch-label{
+        &.active{
+            color: $--color-primary;
+        }
+    }
+    .ms-switch-bar{
+        vertical-align: middle;
+        display: inline-block;
+        font-size: 1.6em;
+        width: 2em;
+        height: 1em;
+        background: $--color-gray;
+        border: $--color-gray solid 1px;
+        border-radius: 1em;
+        box-sizing: content-box;
+        .ms-switch-node{
+            background: #ffffff;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            box-shadow: 0 0 2px $--color-body;
+            transition: transform .3s ease;
+        }
+    }
+}

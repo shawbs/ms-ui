@@ -1,5 +1,5 @@
 <template>
-    <ms-popup @click.native.self="close" :value="value">
+    <ms-popup @click.native.self="close" :value="value" v-append-to-body>
         <transition :name="direction">
             <div class="ms-drawer" :class="[`is-${direction}`]" v-if="visible" :style="{width}" @animationend="hidePopup">
                 <slot />
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {appendToBody} from '../../directive'
 export default {
     name: 'MsDrawer',
     props: {
@@ -23,6 +24,7 @@ export default {
         },
         width: String
     },
+    directives: {appendToBody},
     watch: {
         value(val){
             if (val){

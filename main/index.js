@@ -28,6 +28,8 @@ import Grid from './packages/grid/index.js'
 import GridItem from './packages/grid-item/index.js'
 import Cell from './packages/cell/index.js'
 import CellGroup from './packages/cell-group/index.js'
+import Switch from './packages/switch/index.js'
+import PullRefresh from './packages/pull-refresh/index.js'
 
 const components = [
     Link,
@@ -52,7 +54,9 @@ const components = [
     Grid,
     GridItem,
     Cell,
-    CellGroup
+    CellGroup,
+    Switch,
+    PullRefresh
 ]
 
 const install = function (Vue, opts = {}) {
@@ -106,5 +110,7 @@ export default {
     Grid,
     GridItem,
     Cell,
-    CellGroup
+    CellGroup,
+    Switch,
+    PullRefresh
 }

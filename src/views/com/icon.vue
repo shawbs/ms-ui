@@ -17,7 +17,8 @@ export default {
         return {
             icons: [
                 'home','user','loading','password','arrow-left','arrow-right','arrow-up','arrow-down','cc-arrow-left','cc-arrow-right','cc-arrow-up','cc-arrow-down',
-                'mobile','checkbox-o','checkbox-on','radio','radio-on','radio1','radio1-on','qq','chat','check','tip','tip-o','help','search','close','close-circle','eye','inform'
+                'mobile','checkbox-o','checkbox-on','radio','radio-on','radio1','radio1-on','qq','chat','check','tip','tip-o','help','search','close','close-circle','eye','inform',
+                'github'
             ]
         }
     }
