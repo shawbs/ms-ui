@@ -20,7 +20,7 @@
   "license": "MIT",
   "files": [
     "lib",
-    "src/main"
+    "main"
   ],
   "main": "lib/index.js",
   "style": "lib/theme/index.css",
