@@ -11,6 +11,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./main/packages/theme/src/comom/variables";
+@import "./main/packages/theme/src/comom/mixins";
 .app{
   font-size: 1.4rem;
   .ms-container{
@@ -18,6 +20,18 @@ export default {
   }
   .ms-button{
       margin-bottom: 10px;
+  }
+  .title{
+    text-align: center;
+    margin: $--margin;
+  }
+  .logo{
+    display: inline-block;
+    line-height: 3em;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    position: relative;
   }
 }
 

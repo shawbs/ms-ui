@@ -18,7 +18,7 @@ export default {
             type: String,
             default: 'ltr',
             validator(val){
-                return ['ltr','rtl'].indexOf(val) !== -1
+                return ['ltr','rtl','ttb','btt'].indexOf(val) !== -1
             }
         },
         width: String
