@@ -6,8 +6,13 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 const del = require('del');
-const mainPath = './src/main';
-const themePath = './src/main/packages/theme';
+
+const mainPath = './main';
+const themePath = mainPath + '/packages/theme';
+const distPath = {
+    locale: './lib/locale',
+    theme: './lib/theme'
+}
 
 function compile(cb) {
     src(themePath + '/src/**/*.scss')
@@ -29,19 +34,19 @@ function copyfont(cb) {
 
 function copy(cb){
     src(themePath + '/lib/**/**')
-        .pipe(dest('./lib/theme'))
+        .pipe(dest(distPath.theme))
     cb()
 }
 
 function i18n(){
     return src(mainPath + '/locale/**/**')
-        .pipe(dest('./lib/locale/'))
+        .pipe(dest(distPath.locale))
 }
 
 function clean(cb){
     del.sync([
-        './lib/theme',
-        './lib/locale'
+        distPath.theme,
+        distPath.locale
     ])
     cb()
 }

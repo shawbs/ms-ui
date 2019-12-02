@@ -11,8 +11,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./main/packages/theme/src/comom/variables";
-@import "./main/packages/theme/src/comom/mixins";
+@import "~ms-ui/packages/theme/src/comom/variables";
+@import "~ms-ui/packages/theme/src/comom/mixins";
 .app{
   font-size: 1.4rem;
   .ms-container{

@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import MSUi from '@/main/index'
-import '@/main/packages/theme/src/index.scss'
-import en from '@/main/locale/lang/en'
+import MSUi from 'ms-ui/index'
+import 'ms-ui/packages/theme/src/index.scss'
+import en from 'ms-ui/locale/lang/en'
 
 Vue.use(MSUi,{size: 'large', locale: en})
 
