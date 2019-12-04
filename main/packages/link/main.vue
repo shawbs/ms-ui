@@ -4,8 +4,9 @@
         `ms-link--${type}`,
         disabled ? 'is-disabled' : ''
         ]"
+        v-bind="$attrs"
         :href="disabled ? 'javascript:;':href"
-        :target="target">
+        >
         <slot />
     </a>
 </template>
