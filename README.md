@@ -1,6 +1,6 @@
 # ms-ui
 
-### 参照element-ui实现的一个Vue 移动端组件库，目前包含的组件不是很多，后期会陆续添加
+### 参照element-ui实现的一个Vue 移动端组件库
 
 
 ### [文档](https://shawbs.github.io/ms-ui.example.io/#/)
