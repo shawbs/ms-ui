@@ -105,6 +105,6 @@ $--color-primary: teal;
 /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~@shawbs/ms-ui/lib/theme/font';
 
-@import "~@shawbs/ms-ui/src/main/packages/theme/src/index";
+@import "~@shawbs/ms-ui/main/packages/theme/src/index";
 ```
 
