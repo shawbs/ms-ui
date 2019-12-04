@@ -4,7 +4,7 @@
         `ms-link--${type}`,
         disabled ? 'is-disabled' : ''
         ]"
-        v-bind="$attrs"
+        :target="target"
         :href="disabled ? 'javascript:;':href"
         >
         <slot />
@@ -23,7 +23,10 @@ export default {
             type: String,
             default: '_self'
         },
-        type: String,
+        type: {
+            type: String,
+            default: 'default'
+        },
         disabled: Boolean
     }
 }
