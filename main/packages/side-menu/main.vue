@@ -14,7 +14,7 @@
 
 <script>
 import {on, off} from '../../utils/index'
-import {appendToBody} from '../../directive'
+import {appendToBody} from '../../utils/directive'
 export default {
     name: 'MsSideMenu',
     props: {

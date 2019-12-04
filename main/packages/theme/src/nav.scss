@@ -1,0 +1,41 @@
+@import "./comom/variables";
+@import "./comom/mixins";
+
+.ms-nav{
+    display: flex;
+    background: #ffffff;
+    height: $--navHeight;
+    line-height: $--navHeight;
+    font-size: 15px;
+    position: relative;
+    .ms-nav-title{
+        position: absolute;
+        text-align: center;
+        overflow: hidden;
+        width: 30%;
+        left: 50%;
+        margin-left: -15%;
+    }
+    .ms-nav-back,.ms-nav-left,.ms-nav-right{
+        cursor: pointer;
+        flex: none;
+    }
+    .ms-nav-back,.ms-nav-left{
+        margin-left: $--margin-small;
+    }
+    .ms-nav-right{
+        margin-right: $--margin-small;
+    }
+    .ms-nav-back{
+        color: $--color-primary;
+    }
+    .ms-nav-center{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0 $--padding-small;
+        .ms-input-box{
+            flex: 1;
+        }
+    }
+}

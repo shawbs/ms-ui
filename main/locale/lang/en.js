@@ -95,6 +95,9 @@ export default {
         },
         pageHeader: {
             title: 'Back' // to be translated
+        },
+        nav: {
+            backBtn: 'Back'
         }
     }
 };

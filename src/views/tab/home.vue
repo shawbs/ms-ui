@@ -96,6 +96,10 @@ export default {
                 {
                     url: '/pull-refresh',
                     label: 'pull-refresh'
+                },
+                {
+                    url: '/nav',
+                    label: 'nav'
                 }
             ]
         }

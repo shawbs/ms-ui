@@ -8,9 +8,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
     "build-component": "webpack --config webpack.component.js",
-    "build-theme": "gulp clean && gulp build && gulp copy",
-    "i18n": "gulp i18n",
-    "deploy": "webpack && npm run build-component && npm run build-theme && npm run i18n"
+    "build-theme": "gulp clean && gulp build",
+    "copy": "gulp copy",
+    "deploy": "webpack && npm run build-component && npm run build-theme && gulp copy"
   },
   "keywords": [
     "ms",

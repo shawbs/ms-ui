@@ -22,9 +22,7 @@ export function off(element, event, handler){
 export function hasOwn(obj, key) {
     return hasOwnProperty.call(obj, key);
 }
-/**
- * 触发非常频繁的事件合并成一次延迟执行
- */
+
 export function debounce(action, delay) {
     var timer = null
 
@@ -39,9 +37,6 @@ export function debounce(action, delay) {
     }
 }
 
-/**
- * 设置一个阀值，在阀值内，把触发的事件合并成一次执行；当到达阀值，必定执行一次事件
- */
 export function throttle(action, delay) {
     var statTime = 0
 

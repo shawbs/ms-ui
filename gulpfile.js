@@ -11,6 +11,7 @@ const mainPath = './main';
 const themePath = mainPath + '/packages/theme';
 const distPath = {
     locale: './lib/locale',
+    utils: './lib/utils',
     theme: './lib/theme'
 }
 
@@ -33,15 +34,18 @@ function copyfont(cb) {
 }
 
 function copy(cb){
+    // 复制编译好的style
     src(themePath + '/lib/**/**')
         .pipe(dest(distPath.theme))
+    // 复制locale目录
+    src(mainPath + '/locale/**/**')
+        .pipe(dest(distPath.locale))
+    // 复制utils目录
+    src(mainPath + '/utils/**/**')
+        .pipe(dest(distPath.utils))
     cb()
 }
 
-function i18n(){
-    return src(mainPath + '/locale/**/**')
-        .pipe(dest(distPath.locale))
-}
 
 function clean(cb){
     del.sync([
@@ -54,6 +58,5 @@ function clean(cb){
 exports.compile = compile
 exports.copyfont = copyfont
 exports.copy = copy
-exports.i18n = i18n
 exports.clean = clean
 exports.build = series(compile, copyfont)

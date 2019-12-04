@@ -1,11 +1,13 @@
 <template>
     <div class="ms-pull-refresh">
-        <div class="ms-pull-refresh-content" ref="pullRefresh" :style="translate">
+        <div class="ms-pull-refresh-box" :style="translate">
             <div class="ms-pull-refresh-head" ref="pullRefreshHead">
                 <ms-icon icon="loading"></ms-icon>
                 {{tip}}
             </div>
-            <slot />
+            <div class="ms-pull-refresh-content" ref="pullRefresh">
+                <slot />
+            </div>
         </div>
     </div>
 </template>
@@ -38,7 +40,7 @@ export default {
             }
         },
         translate(){
-            return `margin-top:${-this.headH}px;transform: translate3D(0, ${this.top}px, 0);transition: ${this.doAn ? 'transform .6s ease' : 'none 0s ease'};`
+            return `transform: translate3D(0, ${this.top}px, 0);transition: ${this.doAn ? 'transform .6s ease' : 'none 0s ease'};`
         }
     },
     mounted(){
@@ -57,18 +59,18 @@ export default {
             let self = this
             let speed = 3 //滑动速度
             let margin = 10 //超出距离
-            let isSide = false
+            let num = 0 //滑动距离
             const startFn = function(e) {
-                console.log(self.$refs.pullRefresh.scrollTop)
                 if (self.$refs.pullRefresh.scrollTop !== 0) return
                 startY = e.touches[0].clientY
                 self.doAn = false
             }
 
             const moveFn = function(e) {
-                let num = e.touches[0].clientY - startY
-                isSide = num !== 0
+                num = e.touches[0].clientY - startY
+
                 if (num > 0 && self.status === 0){
+                    self.loading = true
                     if (self.top < self.headH + margin){
                         self.top = self.top + speed
                     } else {
@@ -79,14 +81,14 @@ export default {
             }
 
             const endFn = function(e) {
-                if (isSide){
+                // console.log(num)
+                if (Math.abs(num) > 0){
                     self.doAn = true
-                    if (self.status === 1 ){
-                        if (self.top > self.headH/2){
-                            self.start()
-                        } else {
-                            self.stop()
-                        }
+                    num = 0
+                    if (self.top > self.headH/2){
+                        self.start()
+                    } else {
+                        self.stop()
                     }
                 }
             }
@@ -104,27 +106,22 @@ export default {
             }
         },
         start(){
-            if (this.loading) return
             this.status = 2;
             this.top = this.headH;
             this.doAn = true
             this.loading = true
         },
         stop(){
-            if (!this.loading) return
             this.status = 3;
             this.top = 0;
             this.doAn = true
             this.loading = false
-            setTimeout(() => {
-                this.status = 0;
-            }, 1000);
+            setTimeout(()=>{
+                console.log(2)
+                this.status = 0
+            },500)
         }
     }
 
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

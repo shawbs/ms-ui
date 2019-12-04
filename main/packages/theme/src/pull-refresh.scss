@@ -4,17 +4,27 @@
 .ms-pull-refresh{
     height: 100%;
     overflow: hidden;
-    .ms-pull-refresh-content{
+    .ms-pull-refresh-box{
         position: relative;
         height: 100%;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
+        // overflow: auto;
+        // -webkit-overflow-scrolling: touch;
         .ms-pull-refresh-head{
             padding: $--padding;
             display: flex;
             justify-content: center;
             align-items: center;
-            // flex-direction: column;
+            position: relative;
+            margin-top: -100px;
+            height: 100px;
+            left: 0;
+            width: 100%;
+            z-index: $--z-index-1;
+        }
+        .ms-pull-refresh-content{
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
         }
     }
 }

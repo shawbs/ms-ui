@@ -144,6 +144,12 @@ const routes = [
         name: 'pull-refresh',
         meta: {title: 'pull-refresh'},
         component: () => import('@/views/com/pull-refresh')
+    },
+    {
+        path: '/nav',
+        name: 'nav',
+        meta: {title: 'nav'},
+        component: () => import('@/views/com/nav')
     }
 
 ]

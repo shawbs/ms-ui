@@ -1,35 +1,37 @@
 
-import Lacale from './locale'
-import Loading from './packages/loading/index.js'
-import MsgBox from './packages/message-box/index.js'
-import Toast from './packages/toast/index.js'
+import Lacale from "./locale"
 
-import Layout from './packages/layout/index.js'
-import Link from './packages/link/index.js'
-import Button from './packages/button/index.js'
-import ButtonGroup from './packages/button-group/index.js'
-import Input from './packages/input/index.js'
-import Form from './packages/form/index.js'
-import FormItem from './packages/form-item/index.js'
-import Tabbar from './packages/tabbar/index.js'
-import TabbarItem from './packages/tabbar-item/index.js'
-import Popup from './packages/popup/index.js'
-import Icon from './packages/icon/index.js'
-import Img from './packages/img/index.js'
-import Row from './packages/row/index.js'
-import Col from './packages/col/index.js'
-import Radio from './packages/radio/index.js'
-import RadioGroup from './packages/radio-group/index.js'
-import Checkbox from './packages/checkbox/index.js'
-import CheckboxGroup from './packages/checkbox-group/index.js'
-import Drawer from './packages/drawer/index.js'
-import SideMenu from './packages/side-menu/index.js'
-import Grid from './packages/grid/index.js'
-import GridItem from './packages/grid-item/index.js'
-import Cell from './packages/cell/index.js'
-import CellGroup from './packages/cell-group/index.js'
-import Switch from './packages/switch/index.js'
-import PullRefresh from './packages/pull-refresh/index.js'
+import Loading from "./packages/loading/index.js"
+import MessageBox from "./packages/message-box/index.js"
+import Toast from "./packages/toast/index.js"
+
+import Layout from "./packages/layout/index.js"
+import Link from "./packages/link/index.js"
+import Button from "./packages/button/index.js"
+import ButtonGroup from "./packages/button-group/index.js"
+import Input from "./packages/input/index.js"
+import Form from "./packages/form/index.js"
+import FormItem from "./packages/form-item/index.js"
+import Tabbar from "./packages/tabbar/index.js"
+import TabbarItem from "./packages/tabbar-item/index.js"
+import Popup from "./packages/popup/index.js"
+import Icon from "./packages/icon/index.js"
+import Img from "./packages/img/index.js"
+import Row from "./packages/row/index.js"
+import Col from "./packages/col/index.js"
+import Radio from "./packages/radio/index.js"
+import RadioGroup from "./packages/radio-group/index.js"
+import Checkbox from "./packages/checkbox/index.js"
+import CheckboxGroup from "./packages/checkbox-group/index.js"
+import Drawer from "./packages/drawer/index.js"
+import SideMenu from "./packages/side-menu/index.js"
+import Grid from "./packages/grid/index.js"
+import GridItem from "./packages/grid-item/index.js"
+import Cell from "./packages/cell/index.js"
+import CellGroup from "./packages/cell-group/index.js"
+import Switch from "./packages/switch/index.js"
+import PullRefresh from "./packages/pull-refresh/index.js"
+import Nav from "./packages/nav/index.js"
 
 const components = [
     Link,
@@ -56,7 +58,8 @@ const components = [
     Cell,
     CellGroup,
     Switch,
-    PullRefresh
+    PullRefresh,
+    Nav
 ]
 
 const install = function (Vue, opts = {}) {
@@ -72,10 +75,10 @@ const install = function (Vue, opts = {}) {
     }
 
     Vue.prototype.$loading = Loading
-    Vue.prototype.$msgbox = MsgBox
-    Vue.prototype.$alert = MsgBox.alert
-    Vue.prototype.$confirm = MsgBox.confirm
-    Vue.prototype.$prompt = MsgBox.prompt
+    Vue.prototype.$msgbox = MessageBox
+    Vue.prototype.$alert = MessageBox.alert
+    Vue.prototype.$confirm = MessageBox.confirm
+    Vue.prototype.$prompt = MessageBox.prompt
     Vue.prototype.$toast = Toast.show
 }
 
@@ -87,7 +90,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
     install,
     Loading,
-    MsgBox,
+    MessageBox,
     Toast,
     Button,
     Input,
@@ -112,5 +115,6 @@ export default {
     Cell,
     CellGroup,
     Switch,
-    PullRefresh
+    PullRefresh,
+    Nav
 }

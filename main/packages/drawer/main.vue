@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {appendToBody} from '../../directive'
+import {appendToBody} from '../../utils/directive'
 export default {
     name: 'MsDrawer',
     props: {
