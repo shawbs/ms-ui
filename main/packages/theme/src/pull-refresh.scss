@@ -6,7 +6,7 @@
         position: relative;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        .ms-pull-refresh-head{
+        .ms-pull-refresh-head,.ms-pull-refresh-bottom{
             padding: $--padding;
             display: flex;
             justify-content: center;

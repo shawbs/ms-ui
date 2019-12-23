@@ -2,15 +2,32 @@
     <ms-page>
         <ms-container>
             <ms-cell-group title="cell1">
+                <ms-cell label="asd" link></ms-cell>
                 <ms-cell label="asd" link>
                     <div slot="suffix">asd</div>
                 </ms-cell>
+                <ms-cell label="asd">
+                    <ms-input v-model="username"></ms-input>
+                </ms-cell>
                 <ms-cell label="asd" link>
-                    <ms-input></ms-input>
-                    <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+                    <ms-input v-model="username"></ms-input>
                 </ms-cell>
                 <ms-cell>asd
-
+                    <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+                </ms-cell>
+            </ms-cell-group>
+            <ms-cell-group title="cell1">
+                <ms-cell label="asd" link></ms-cell>
+                <ms-cell label="asd" link>
+                    <div slot="suffix">asd</div>
+                </ms-cell>
+                <ms-cell label="asd">
+                    <ms-input v-model="username"></ms-input>
+                </ms-cell>
+                <ms-cell label="asd" link>
+                    <ms-input v-model="username"></ms-input>
+                </ms-cell>
+                <ms-cell>asd
                     <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
                 </ms-cell>
             </ms-cell-group>
@@ -36,7 +53,8 @@ export default {
     data(){
         return {
             checkbox: ['1'],
-            agree: false
+            agree: false,
+            username: '小山'
         }
     }
 }

@@ -14,7 +14,10 @@
     }
     .ms-tab-item-box{
         position: relative;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
     .ms-tab-item-bage{
         position: absolute;

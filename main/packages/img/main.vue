@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {on, off} from '../../utils'
+import {on, off, getScrollContainer} from '../../utils'
 export default {
     name: 'MsImg',
     props: {
@@ -39,7 +39,7 @@ export default {
         width: [Number, String],
         height: [Number, String],
         lazy: Boolean,
-        scrollContainer: String, //滚动容器的类名，或者dom元素
+        scrollContainer: [String,Object], //滚动容器的类名，或者dom元素
         fit: {
             validator: function (value) {
                 // 这个值必须匹配下列字符串中的一个
@@ -114,14 +114,7 @@ export default {
             } else if (typeof this.scrollContainer === 'object' && this.scrollContainer.nodeType === 1){
                 dom = this.scrollContainer
             } else {
-                let img = this.$refs.msImg
-                let parent = img.parentNode
-                let overflow = getComputedStyle(parent).overflow
-                while (['auto','scroll'].indexOf(overflow) < 0){
-                    parent = parent.parentNode
-                    overflow = getComputedStyle(parent).overflow
-                }
-                dom = parent
+                dom = getScrollContainer(this.$refs.msImg)
             }
             return dom
         }
