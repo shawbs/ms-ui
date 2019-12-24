@@ -2,7 +2,6 @@
     "loading" : "./main/packages/loading/index.js",
     "message-box" : "./main/packages/message-box/index.js",
     "toast" : "./main/packages/toast/index.js",
-    
     "layout" : "./main/packages/layout/index.js",
     "link" : "./main/packages/link/index.js",
     "button" : "./main/packages/button/index.js",
