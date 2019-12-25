@@ -11,7 +11,7 @@
             margin: 0 5px;
             position: absolute;
             top: auto;
-            left: auto;
+            right: auto;
         }
     }
     .ms-form-item-label{
@@ -19,6 +19,7 @@
         line-height: $--input-height;
         text-align: right;
         padding: 0 $--padding;
+        position: relative;
     }
     &.ms-form-item-small{
         .ms-form-item-label,.ms-form-item-content{

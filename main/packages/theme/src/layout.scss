@@ -17,8 +17,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 
     > .ms-header {
         flex: none;

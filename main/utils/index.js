@@ -53,11 +53,12 @@ export function throttle(action, delay) {
 export function getScrollContainer(dom){
     if (dom && dom.parentNode){
         let parent = dom.parentNode
-        console.log(parent)
-        let overflow = window.getComputedStyle(parent).overflow
-        while (['auto','scroll'].indexOf(overflow) < 0){
-            parent = parent.parentNode
-            overflow = window.getComputedStyle(parent).overflow
+        if (parent){
+            let overflow = document.defaultView.getComputedStyle(parent, '').overflow
+            while (['auto','scroll'].indexOf(overflow) < 0){
+                parent = parent.parentNode
+                overflow = document.defaultView.getComputedStyle(parent, '').overflow
+            }
         }
         dom = parent
     }
