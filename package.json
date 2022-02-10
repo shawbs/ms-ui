@@ -42,7 +42,7 @@
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^4.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "progress-bar-webpack-plugin": "^1.12.1",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10",
